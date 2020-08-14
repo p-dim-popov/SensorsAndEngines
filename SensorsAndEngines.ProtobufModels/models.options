@@ -1,0 +1,2 @@
+ProtobufModels.Sensor.MeasurementUnit	max_size:4
+ProtobufModels.Sensors.List	max_count:16

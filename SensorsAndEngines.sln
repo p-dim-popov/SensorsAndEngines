@@ -1,0 +1,103 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SensorsAndEngines.WebApplication", "SensorsAndEngines.WebApplication\SensorsAndEngines.WebApplication.csproj", "{ABEC537F-6328-4158-9630-B54E0FCACFA1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SensorsAndEngines.Desktop", "SensorsAndEngines.Desktop\SensorsAndEngines.Desktop.csproj", "{9870EF3C-FB4A-44ED-91D2-8063BA05310D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SensorsAndEngines.ProtobufModels.CSharp", "SensorsAndEngines.ProtobufModels\CSharp\SensorsAndEngines.ProtobufModels.CSharp.csproj", "{61AA769F-E1FF-412E-8E9E-062A16D4937D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SensorsAndEngines.ProtobufModels", "SensorsAndEngines.ProtobufModels", "{64171142-7D09-4CB8-AD93-F1792BE3043B}"
+	ProjectSection(SolutionItems) = preProject
+		SensorsAndEngines.ProtobufModels\models.options = SensorsAndEngines.ProtobufModels\models.options
+		SensorsAndEngines.ProtobufModels\models.proto = SensorsAndEngines.ProtobufModels\models.proto
+	EndProjectSection
+EndProject
+Project("{803FD0C6-D64E-4E16-9DC3-1DAEC859A3D2}") = "SensorsAndEngines.Microcontroller", "SensorsAndEngines.Microcontroller\SensorsAndEngines.Microcontroller.vgdbproj", "{975E1158-09CA-47DA-A63E-2A12CE3E2382}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SensorsAndEngines.ProtobufModels.Cpp", "SensorsAndEngines.ProtobufModels\Cpp\SensorsAndEngines.ProtobufModels.Cpp.vcxitems", "{108CEDB3-9158-429D-B6DD-E6A5F50FA5F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|SparkFun_Pro_Micro = Debug|SparkFun_Pro_Micro
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|SparkFun_Pro_Micro = Release|SparkFun_Pro_Micro
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Debug|SparkFun_Pro_Micro.ActiveCfg = Debug|Any CPU
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Debug|SparkFun_Pro_Micro.Build.0 = Debug|Any CPU
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Debug|x64.ActiveCfg = Debug|x64
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Debug|x64.Build.0 = Debug|x64
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Debug|x86.Build.0 = Debug|Any CPU
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Release|SparkFun_Pro_Micro.ActiveCfg = Release|Any CPU
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Release|SparkFun_Pro_Micro.Build.0 = Release|Any CPU
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Release|x64.ActiveCfg = Release|x64
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Release|x64.Build.0 = Release|x64
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Release|x86.ActiveCfg = Release|Any CPU
+		{ABEC537F-6328-4158-9630-B54E0FCACFA1}.Release|x86.Build.0 = Release|Any CPU
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Debug|SparkFun_Pro_Micro.ActiveCfg = Debug|Any CPU
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Debug|SparkFun_Pro_Micro.Build.0 = Debug|Any CPU
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Debug|x64.ActiveCfg = Debug|x64
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Debug|x64.Build.0 = Debug|x64
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Debug|x86.Build.0 = Debug|Any CPU
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Release|SparkFun_Pro_Micro.ActiveCfg = Release|Any CPU
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Release|SparkFun_Pro_Micro.Build.0 = Release|Any CPU
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Release|x64.ActiveCfg = Release|x64
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Release|x64.Build.0 = Release|x64
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Release|x86.ActiveCfg = Release|Any CPU
+		{9870EF3C-FB4A-44ED-91D2-8063BA05310D}.Release|x86.Build.0 = Release|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Debug|SparkFun_Pro_Micro.ActiveCfg = Debug|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Debug|SparkFun_Pro_Micro.Build.0 = Debug|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Debug|x64.Build.0 = Debug|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Debug|x86.Build.0 = Debug|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Release|SparkFun_Pro_Micro.ActiveCfg = Release|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Release|SparkFun_Pro_Micro.Build.0 = Release|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Release|x64.ActiveCfg = Release|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Release|x64.Build.0 = Release|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Release|x86.ActiveCfg = Release|Any CPU
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Release|x86.Build.0 = Release|Any CPU
+		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Debug|Any CPU.ActiveCfg = Debug|SparkFun_Pro_Micro
+		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Debug|SparkFun_Pro_Micro.ActiveCfg = Debug|SparkFun_Pro_Micro
+		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Debug|SparkFun_Pro_Micro.Build.0 = Debug|SparkFun_Pro_Micro
+		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Debug|x64.ActiveCfg = Debug|SparkFun_Pro_Micro
+		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Debug|x86.ActiveCfg = Debug|SparkFun_Pro_Micro
+		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Release|Any CPU.ActiveCfg = Release|SparkFun_Pro_Micro
+		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Release|SparkFun_Pro_Micro.ActiveCfg = Release|SparkFun_Pro_Micro
+		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Release|SparkFun_Pro_Micro.Build.0 = Release|SparkFun_Pro_Micro
+		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Release|x64.ActiveCfg = Release|SparkFun_Pro_Micro
+		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Release|x86.ActiveCfg = Release|SparkFun_Pro_Micro
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{61AA769F-E1FF-412E-8E9E-062A16D4937D} = {64171142-7D09-4CB8-AD93-F1792BE3043B}
+		{108CEDB3-9158-429D-B6DD-E6A5F50FA5F5} = {64171142-7D09-4CB8-AD93-F1792BE3043B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {916D35E3-05F7-4990-A784-3190C6843C4F}
+	EndGlobalSection
+EndGlobal

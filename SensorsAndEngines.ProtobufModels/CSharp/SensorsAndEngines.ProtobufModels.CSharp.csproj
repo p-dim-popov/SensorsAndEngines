@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.12.4" />
+    <PackageReference Include="Google.Protobuf.Tools" Version="3.12.4" />
+    <PackageReference Include="Grpc.Tools" Version="2.31.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <Protobuf Include="**/*.proto" OutputDir="%(RelativeDir)" CompileOutputs="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="nanopb\**" />
+    <EmbeddedResource Remove="nanopb\**" />
+    <None Remove="nanopb\**" />
+    <Protobuf Remove="nanopb\**" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="$(ProjectDir)..\make_models_links.bat $(ProjectDir).. --Debug" />
+  </Target>
+
+</Project>
