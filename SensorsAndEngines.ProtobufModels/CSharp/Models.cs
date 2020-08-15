@@ -25,14 +25,14 @@ namespace SensorsAndEngines.ProtobufModels {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cgxtb2RlbHMucHJvdG8SDlByb3RvYnVmTW9kZWxzIjEKDURpZ2l0YWxTZW5z",
-            "b3ISEQoJVGltZXN0YW1wGAEgASgFEg0KBVZhbHVlGAIgASgIIkUKDEFuYWxv",
-            "Z1NlbnNvchISCgpVcHBlclJhbmdlGAEgASgFEhIKCkxvd2VyUmFuZ2UYAiAB",
-            "KAUSDQoFVmFsdWUYAyABKAIimAEKBlNlbnNvchIwCgdEaWdpdGFsGAEgASgL",
+            "b3ISEQoJVGltZXN0YW1wGAEgASgNEg0KBVZhbHVlGAIgASgIIkUKDEFuYWxv",
+            "Z1NlbnNvchISCgpVcHBlclJhbmdlGAEgASgREhIKCkxvd2VyUmFuZ2UYAiAB",
+            "KBESDQoFVmFsdWUYAyABKAIimAEKBlNlbnNvchIwCgdEaWdpdGFsGAEgASgL",
             "Mh0uUHJvdG9idWZNb2RlbHMuRGlnaXRhbFNlbnNvckgAEi4KBkFuYWxvZxgC",
             "IAEoCzIcLlByb3RvYnVmTW9kZWxzLkFuYWxvZ1NlbnNvckgAEhcKD01lYXN1",
-            "cmVtZW50VW5pdBgDIAEoCRILCgNQaW4YBCABKAVCBgoEVHlwZSJCCgdTZW5z",
+            "cmVtZW50VW5pdBgDIAEoCRILCgNQaW4YBCABKA1CBgoEVHlwZSJCCgdTZW5z",
             "b3JzEiQKBExpc3QYASADKAsyFi5Qcm90b2J1Zk1vZGVscy5TZW5zb3ISEQoJ",
-            "VGltZXN0YW1wGAIgASgFQiOqAiBTZW5zb3JzQW5kRW5naW5lcy5Qcm90b2J1",
+            "VGltZXN0YW1wGAIgASgNQiOqAiBTZW5zb3JzQW5kRW5naW5lcy5Qcm90b2J1",
             "Zk1vZGVsc2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -84,9 +84,9 @@ namespace SensorsAndEngines.ProtobufModels {
 
     /// <summary>Field number for the "Timestamp" field.</summary>
     public const int TimestampFieldNumber = 1;
-    private int timestamp_;
+    private uint timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Timestamp {
+    public uint Timestamp {
       get { return timestamp_; }
       set {
         timestamp_ = value;
@@ -142,7 +142,7 @@ namespace SensorsAndEngines.ProtobufModels {
     public void WriteTo(pb::CodedOutputStream output) {
       if (Timestamp != 0) {
         output.WriteRawTag(8);
-        output.WriteInt32(Timestamp);
+        output.WriteUInt32(Timestamp);
       }
       if (Value != false) {
         output.WriteRawTag(16);
@@ -157,7 +157,7 @@ namespace SensorsAndEngines.ProtobufModels {
     public int CalculateSize() {
       int size = 0;
       if (Timestamp != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Timestamp);
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Timestamp);
       }
       if (Value != false) {
         size += 1 + 1;
@@ -191,7 +191,7 @@ namespace SensorsAndEngines.ProtobufModels {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Timestamp = input.ReadInt32();
+            Timestamp = input.ReadUInt32();
             break;
           }
           case 16: {
@@ -313,11 +313,11 @@ namespace SensorsAndEngines.ProtobufModels {
     public void WriteTo(pb::CodedOutputStream output) {
       if (UpperRange != 0) {
         output.WriteRawTag(8);
-        output.WriteInt32(UpperRange);
+        output.WriteSInt32(UpperRange);
       }
       if (LowerRange != 0) {
         output.WriteRawTag(16);
-        output.WriteInt32(LowerRange);
+        output.WriteSInt32(LowerRange);
       }
       if (Value != 0F) {
         output.WriteRawTag(29);
@@ -332,10 +332,10 @@ namespace SensorsAndEngines.ProtobufModels {
     public int CalculateSize() {
       int size = 0;
       if (UpperRange != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(UpperRange);
+        size += 1 + pb::CodedOutputStream.ComputeSInt32Size(UpperRange);
       }
       if (LowerRange != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(LowerRange);
+        size += 1 + pb::CodedOutputStream.ComputeSInt32Size(LowerRange);
       }
       if (Value != 0F) {
         size += 1 + 4;
@@ -372,11 +372,11 @@ namespace SensorsAndEngines.ProtobufModels {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            UpperRange = input.ReadInt32();
+            UpperRange = input.ReadSInt32();
             break;
           }
           case 16: {
-            LowerRange = input.ReadInt32();
+            LowerRange = input.ReadSInt32();
             break;
           }
           case 29: {
@@ -468,9 +468,9 @@ namespace SensorsAndEngines.ProtobufModels {
 
     /// <summary>Field number for the "Pin" field.</summary>
     public const int PinFieldNumber = 4;
-    private int pin_;
+    private uint pin_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Pin {
+    public uint Pin {
       get { return pin_; }
       set {
         pin_ = value;
@@ -552,7 +552,7 @@ namespace SensorsAndEngines.ProtobufModels {
       }
       if (Pin != 0) {
         output.WriteRawTag(32);
-        output.WriteInt32(Pin);
+        output.WriteUInt32(Pin);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -572,7 +572,7 @@ namespace SensorsAndEngines.ProtobufModels {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(MeasurementUnit);
       }
       if (Pin != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Pin);
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Pin);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -640,7 +640,7 @@ namespace SensorsAndEngines.ProtobufModels {
             break;
           }
           case 32: {
-            Pin = input.ReadInt32();
+            Pin = input.ReadUInt32();
             break;
           }
         }
@@ -696,9 +696,9 @@ namespace SensorsAndEngines.ProtobufModels {
 
     /// <summary>Field number for the "Timestamp" field.</summary>
     public const int TimestampFieldNumber = 2;
-    private int timestamp_;
+    private uint timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Timestamp {
+    public uint Timestamp {
       get { return timestamp_; }
       set {
         timestamp_ = value;
@@ -744,7 +744,7 @@ namespace SensorsAndEngines.ProtobufModels {
       list_.WriteTo(output, _repeated_list_codec);
       if (Timestamp != 0) {
         output.WriteRawTag(16);
-        output.WriteInt32(Timestamp);
+        output.WriteUInt32(Timestamp);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -756,7 +756,7 @@ namespace SensorsAndEngines.ProtobufModels {
       int size = 0;
       size += list_.CalculateSize(_repeated_list_codec);
       if (Timestamp != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Timestamp);
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Timestamp);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -789,7 +789,7 @@ namespace SensorsAndEngines.ProtobufModels {
             break;
           }
           case 16: {
-            Timestamp = input.ReadInt32();
+            Timestamp = input.ReadUInt32();
             break;
           }
         }

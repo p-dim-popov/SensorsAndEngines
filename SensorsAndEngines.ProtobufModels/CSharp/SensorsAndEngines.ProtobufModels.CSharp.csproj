@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="$(ProjectDir)..\make_models_links.bat $(ProjectDir).. --Debug" />
+    <Exec Command="&quot;$(SolutionDir)SensorsAndEngines.ProtobufModels\make_models_links.bat&quot; &quot;$(SolutionDir)SensorsAndEngines.ProtobufModels&quot; --Debug" />
   </Target>
 
 </Project>

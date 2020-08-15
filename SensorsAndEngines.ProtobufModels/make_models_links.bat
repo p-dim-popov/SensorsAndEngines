@@ -1,19 +1,17 @@
 @echo off
 
-if [%~2]==[--Debug] set debug_flag=true
+if "%2"=="--Debug" set debug_flag=true
 
-set input_dir=%~1
-
-if [%input_dir%]==[] (
-	echo No input directory entered! Use cmd args.
+if [%1]==[] (
+	echo "No input directory entered! Use cmd args."
 	pause
 	exit /b %errorlevel%
 )
 
-call :debug_echo "Begin of linking at %input_dir%"
-for /D %%G in ("%input_dir%\*") DO ( 
+call :debug_echo "Begin of linking at %~1"
+for /D %%G in ("%~1\*") DO ( 
 	call :debug_echo "Gonna change the directory"
-	cd %%G
+	cd "%%G"
 	call :debug_echo "I'm at %%G"
 
 	IF EXIST "models.proto" (

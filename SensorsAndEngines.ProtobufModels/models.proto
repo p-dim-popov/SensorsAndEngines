@@ -3,13 +3,13 @@ package ProtobufModels;
 option csharp_namespace = "SensorsAndEngines.ProtobufModels";
 
 message DigitalSensor {
-	int32 Timestamp = 1;
+	uint32 Timestamp = 1;
 	bool Value = 2;
 }
 
 message AnalogSensor {
-	int32 UpperRange = 1;
-	int32 LowerRange = 2;
+	sint32 UpperRange = 1;
+	sint32 LowerRange = 2;
 	float Value = 3;
 }
 
@@ -20,10 +20,10 @@ message Sensor {
 	}
 	
 	string MeasurementUnit = 3;
-	int32 Pin = 4;
+	uint32 Pin = 4;
 }
 
 message Sensors {
 	repeated Sensor List = 1;
-	int32 Timestamp = 2;
+	uint32 Timestamp = 2;
 }

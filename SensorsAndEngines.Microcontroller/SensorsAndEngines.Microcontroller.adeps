@@ -30,7 +30,7 @@
       <Key>
         <Packager>pdimp</Packager>
         <Name>models</Name>
-        <Version>1.1.0</Version>
+        <Version>1</Version>
       </Key>
     </Dependency>
   </Dependencies>

@@ -19,23 +19,17 @@
                 Analog = new AnalogSensor
                 {
                     UpperRange = 5,
-                    LowerRange = 1
+                    LowerRange = -1
                 },
-                MeasurementUnit = "B47" //Kilonewton
+                MeasurementUnit = "B47", //Kilonewton
+                Pin = 19
             };
 
-            var digital = new Sensor
-            {
-                Digital = new DigitalSensor(),
-                MeasurementUnit = "BTU" //British thermal unit
-            };
-
-            var configLine = new Sensors
+            var sensors = new Sensors
             {
                 List =
                 {
-                    analog,
-                    digital
+                    analog
                 }
             };
 
@@ -50,12 +44,14 @@
                 serial.DataReceived += (sender, eventArgs) =>
                 {
                     var serialPort = sender as SerialPort;
-                    string data = serialPort?.ReadExisting();
-                    Console.Write(data);
+                    var inputSensors = Sensors.Parser.ParseFrom(serialPort?.BaseStream);
+                    foreach (var sensor in inputSensors.List)
+                    {
+                        Console.Write($"{sensor.Analog.Value} {sensor.MeasurementUnit}");
+                    }
                 };
 
-                //while (true)
-                serial.Write(configLine.ToByteArray(), 0, configLine.CalculateSize());
+                serial.Write(sensors.ToByteArray(), 0, sensors.CalculateSize());
 
             }
             catch (Exception e)

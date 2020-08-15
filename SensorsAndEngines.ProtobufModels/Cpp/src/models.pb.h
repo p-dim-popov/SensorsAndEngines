@@ -21,7 +21,7 @@ typedef struct _ProtobufModels_AnalogSensor {
 } ProtobufModels_AnalogSensor;
 
 typedef struct _ProtobufModels_DigitalSensor {
-    int32_t Timestamp;
+    uint32_t Timestamp;
     bool Value;
 } ProtobufModels_DigitalSensor;
 
@@ -32,13 +32,13 @@ typedef struct _ProtobufModels_Sensor {
         ProtobufModels_AnalogSensor Analog;
     } Type;
     char MeasurementUnit[4];
-    int32_t Pin;
+    uint32_t Pin;
 } ProtobufModels_Sensor;
 
 typedef struct _ProtobufModels_Sensors {
     pb_size_t List_count;
     ProtobufModels_Sensor List[16];
-    int32_t Timestamp;
+    uint32_t Timestamp;
 } ProtobufModels_Sensors;
 
 
@@ -67,14 +67,14 @@ typedef struct _ProtobufModels_Sensors {
 
 /* Struct field encoding specification for nanopb */
 #define ProtobufModels_DigitalSensor_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, INT32,    Timestamp,         1) \
+X(a, STATIC,   SINGULAR, UINT32,   Timestamp,         1) \
 X(a, STATIC,   SINGULAR, BOOL,     Value,             2)
 #define ProtobufModels_DigitalSensor_CALLBACK NULL
 #define ProtobufModels_DigitalSensor_DEFAULT NULL
 
 #define ProtobufModels_AnalogSensor_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, INT32,    UpperRange,        1) \
-X(a, STATIC,   SINGULAR, INT32,    LowerRange,        2) \
+X(a, STATIC,   SINGULAR, SINT32,   UpperRange,        1) \
+X(a, STATIC,   SINGULAR, SINT32,   LowerRange,        2) \
 X(a, STATIC,   SINGULAR, FLOAT,    Value,             3)
 #define ProtobufModels_AnalogSensor_CALLBACK NULL
 #define ProtobufModels_AnalogSensor_DEFAULT NULL
@@ -83,7 +83,7 @@ X(a, STATIC,   SINGULAR, FLOAT,    Value,             3)
 X(a, STATIC,   ONEOF,    MESSAGE,  (Type,Digital,Type.Digital),   1) \
 X(a, STATIC,   ONEOF,    MESSAGE,  (Type,Analog,Type.Analog),   2) \
 X(a, STATIC,   SINGULAR, STRING,   MeasurementUnit,   3) \
-X(a, STATIC,   SINGULAR, INT32,    Pin,               4)
+X(a, STATIC,   SINGULAR, UINT32,   Pin,               4)
 #define ProtobufModels_Sensor_CALLBACK NULL
 #define ProtobufModels_Sensor_DEFAULT NULL
 #define ProtobufModels_Sensor_Type_Digital_MSGTYPE ProtobufModels_DigitalSensor
@@ -91,7 +91,7 @@ X(a, STATIC,   SINGULAR, INT32,    Pin,               4)
 
 #define ProtobufModels_Sensors_FIELDLIST(X, a) \
 X(a, STATIC,   REPEATED, MESSAGE,  List,              1) \
-X(a, STATIC,   SINGULAR, INT32,    Timestamp,         2)
+X(a, STATIC,   SINGULAR, UINT32,   Timestamp,         2)
 #define ProtobufModels_Sensors_CALLBACK NULL
 #define ProtobufModels_Sensors_DEFAULT NULL
 #define ProtobufModels_Sensors_List_MSGTYPE ProtobufModels_Sensor
@@ -108,10 +108,10 @@ extern const pb_msgdesc_t ProtobufModels_Sensors_msg;
 #define ProtobufModels_Sensors_fields &ProtobufModels_Sensors_msg
 
 /* Maximum encoded size of messages (where known) */
-#define ProtobufModels_DigitalSensor_size        13
-#define ProtobufModels_AnalogSensor_size         27
-#define ProtobufModels_Sensor_size               45
-#define ProtobufModels_Sensors_size              763
+#define ProtobufModels_DigitalSensor_size        8
+#define ProtobufModels_AnalogSensor_size         17
+#define ProtobufModels_Sensor_size               30
+#define ProtobufModels_Sensors_size              518
 
 #ifdef __cplusplus
 } /* extern "C" */

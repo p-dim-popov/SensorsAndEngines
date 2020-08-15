@@ -9,7 +9,12 @@
 
 // Macros ---------------------------
 
+#define INFO_LED 16
 #define BAUD_RATE 9600
+#define MIN_ANALOG 0
+#define MAX_ANALOG 1023
+
+// Structures -----------------------
 
 struct Sensors
 {
@@ -17,15 +22,16 @@ struct Sensors
 
 	ProtobufModels_Sensors sensors = ProtobufModels_Sensors_init_zero;
 
-	//Setup -------------------------
+	//Methods -----------------------
 
-	void Setup();
+	void Setup(Stream&);
 	/*
 	 * Save timestamp on digital sensor change
 	 */
 	void Read();
-	void Send(pb_ostream_t&);
-};
+	void Send(Stream&);
+}
+;
 
 // Global Variables -----------------
 
@@ -38,36 +44,36 @@ void ErrorBlink();
 // the setup function runs once when you press reset or power the board
 void setup()
 {
-	pinMode(17, OUTPUT);
+	pinMode(INFO_LED, OUTPUT);
 	Serial.begin(BAUD_RATE);
 	
-	while (!Serial.available()) 
-		;
+	while (!Serial.available()) ;
 
-	sensors.Setup();
+	sensors.Setup(Serial);
 }
 
 // the loop function runs over and over again until power down or reset
 void loop()
 {
-	static pb_ostream_t ostream = as_pb_ostream(Serial);
 	sensors.Read();
-	sensors.Send(ostream);
+	sensors.Send(Serial);
 }
+
+// Implementations ------------------
 
 void ErrorBlink()
 {
 	while (1)
 	{
-		digitalWrite(17, !digitalRead(17));
-		delay(128);
+		digitalWrite(INFO_LED, !digitalRead(INFO_LED));
+		delay(64);
 	}
 }
 
-void Sensors::Setup()
+void Sensors::Setup(Stream& stream)
 {
-	pb_istream_t istream = as_pb_istream(Serial);
-	if (!(boolean)pb_decode(&istream, ProtobufModels_Sensors_fields, &sensors.List))
+	pb_istream_t istream = as_pb_istream(stream);
+	if (!pb_decode(&istream, ProtobufModels_Sensors_fields, &sensors.List))
 		ErrorBlink();
 
 	for (byte i = 0; i < sensors.List_count; i++)
@@ -76,30 +82,41 @@ void Sensors::Setup()
 
 void Sensors::Read()
 {
+	sensors.Timestamp = millis();
+	
 	for (byte i = 0; i < sensors.List_count; i++)
 	{
-		switch (sensors.List[i].which_Type)
+		ProtobufModels_Sensor& sensor = sensors.List[i];
+		
+		switch (sensor.which_Type)
 		{
 		case ProtobufModels_Sensor_Digital_tag:
 			{
-				int state = digitalRead(sensors.List[i].Pin);
-				if (1)
+				int currentState = digitalRead(sensor.Pin);
+				if (currentState != sensor.Type.Digital.Value)
 				{
-		 
+					sensor.Type.Digital.Timestamp = sensors.Timestamp;
+					sensor.Type.Digital.Value = currentState;
 				}
 			}
 			break;
 		case ProtobufModels_Sensor_Analog_tag:
 			{
-
+				int value = analogRead(sensors.List[i].Pin);
+				sensor.Type.Analog.Value = 
+					map(value, MIN_ANALOG, MAX_ANALOG, sensor.Type.Analog.LowerRange, sensor.Type.Analog.UpperRange);
 			}
 			break;
+		default:
+			ErrorBlink();
+			break;
 		}
-
 	}
 }
 
-void Sensors::Send(pb_ostream_t& ostream)
+void Sensors::Send(Stream& stream)
 {
-
+	pb_ostream_s ostream = as_pb_ostream(stream);
+	if (!pb_encode(&ostream, ProtobufModels_Sensors_fields, &sensors.List))
+		ErrorBlink();
 }

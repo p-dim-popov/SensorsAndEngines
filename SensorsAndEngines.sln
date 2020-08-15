@@ -11,6 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SensorsAndEngines.ProtobufM
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SensorsAndEngines.ProtobufModels", "SensorsAndEngines.ProtobufModels", "{64171142-7D09-4CB8-AD93-F1792BE3043B}"
 	ProjectSection(SolutionItems) = preProject
+		SensorsAndEngines.ProtobufModels\make_models_links.bat = SensorsAndEngines.ProtobufModels\make_models_links.bat
 		SensorsAndEngines.ProtobufModels\models.options = SensorsAndEngines.ProtobufModels\models.options
 		SensorsAndEngines.ProtobufModels\models.proto = SensorsAndEngines.ProtobufModels\models.proto
 	EndProjectSection
@@ -80,6 +81,7 @@ Global
 		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Release|x86.ActiveCfg = Release|Any CPU
 		{61AA769F-E1FF-412E-8E9E-062A16D4937D}.Release|x86.Build.0 = Release|Any CPU
 		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Debug|Any CPU.ActiveCfg = Debug|SparkFun_Pro_Micro
+		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Debug|Any CPU.Build.0 = Debug|SparkFun_Pro_Micro
 		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Debug|SparkFun_Pro_Micro.ActiveCfg = Debug|SparkFun_Pro_Micro
 		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Debug|SparkFun_Pro_Micro.Build.0 = Debug|SparkFun_Pro_Micro
 		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Debug|x64.ActiveCfg = Debug|SparkFun_Pro_Micro

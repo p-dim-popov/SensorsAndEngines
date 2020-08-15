@@ -1,3 +1,3 @@
 @echo off
-set initial_dir=%1
-nanopb_generator %2 --output-dir=%initial_dir% --options-file=models.options models.proto
+ping -n 10 127.0.0.1 >nul
+nanopb_generator %~2 --output-dir="%~1" --options-file=models.options models.proto
