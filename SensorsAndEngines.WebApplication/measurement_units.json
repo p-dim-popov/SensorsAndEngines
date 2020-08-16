@@ -1,0 +1,1472 @@
+[
+    {
+        "code": "1N",
+        "description": "Count",
+        "name": "Count"
+    },
+    {
+        "code": "1S",
+        "description": "Milligram per Kilogram (mg/kg)",
+        "name": "Milligram per Kilogram (mg/kg)"
+    },
+    {
+        "code": "23",
+        "description": "Grams Per Cubic Centimetre",
+        "name": "Grams Per Cubic Centimetre"
+    },
+    {
+        "code": "28",
+        "description": "A unit of pressure equal to 9.80665*10-05 Bar",
+        "name": "Kilogram per square metre"
+    },
+    {
+        "code": "2L",
+        "description": "Cubic foot per minute",
+        "name": "Cubic Foot Per Minute"
+    },
+    {
+        "code": "2M",
+        "description": "The number of centimetre per second the trade item or part of the trade item moves.",
+        "name": "Centimetre Per Second"
+    },
+    {
+        "code": "2N",
+        "description": "A measurement for sound in air and other gases, relative to 20 micropascals (μPa) = 2×10−5 Pa, the quietest sound a human can hear. This is roughly the sound of a mosquito flying 3 metres away. This is often abbreviated to just \"dB\"; however the correct abbreviation is dB(SPL), indicating decibel for Sound Pressure Level.",
+        "name": "Decibel"
+    },
+    {
+        "code": "2P",
+        "description": "A unit of information equal to 10³ (1000) bytes.",
+        "name": "Kilobyte"
+    },
+    {
+        "code": "2Q",
+        "description": "kBq is 10³ Bq",
+        "name": "Kilo Becquerel"
+    },
+    {
+        "code": "2X",
+        "description": "Metre Per Minute",
+        "name": "Metre Per Minute"
+    },
+    {
+        "code": "4G",
+        "description": "A microlitre is one millionth of a litre",
+        "name": "Microlitre"
+    },
+    {
+        "code": "4H",
+        "description": "A micrometre is one millionth of a metre, also termed Micron.",
+        "name": "Micrometre"
+    },
+    {
+        "code": "4L",
+        "description": "A unit of information equal to 10  (1000000) bytes.",
+        "name": "Megabyte"
+    },
+    {
+        "code": "4N",
+        "description": "Megabecquerel: 106 Bq1 Bq is defined as the activity of a quantity of radioactive material in which one nucleus decays per second.",
+        "name": "Megabecquerel"
+    },
+    {
+        "code": "58",
+        "description": "A unit of mass defining the total number of kilograms after deductions.",
+        "name": "Net kilogram"
+    },
+    {
+        "code": "59",
+        "description": "A unit of proportion equal to 10-6 (ppm).",
+        "name": "Part per million"
+    },
+    {
+        "code": "5B",
+        "description": "A unit of count defining the number of batches (batch: quantity of material produced in one operation or number of animals or persons coming at once).",
+        "name": "Batch"
+    },
+    {
+        "code": "64",
+        "description": "Psig (pound-force per square inch gauge) is a unit of pressure relative to the surrounding atmosphere. At sea level, Earth's atmosphere actually exerts a pressure of 14.7 psi. Humans do not feel this pressure because internal pressure of liquid in their bodies matches the external pressure. If a pressure gauge is calibrated to read zero in space, then at sea level on Earth it would read 14.7 psi. Thus a reading of 30 psig, on Earth, on a tire gauge represents an absolute pressure of 44.7 psi \n(lb/in²).",
+        "name": "Pound per square inch - Gauge"
+    },
+    {
+        "code": "80",
+        "description": "Psia (pound-force per square inch absolute)is a unit of pressure pressure relative to a vacuum (such as that in space). At sea level, Earth's atmosphere actually exerts a pressure of 14.7 psi. Humans do not feel this pressure because internal pressure of liquid in their bodies matches the external pressure. If a pressure gauge is calibrated to read zero in space, then at sea level on Earth it would read 14.7 psi. Thus a reading of 30 psig, on Earth, on a tire gauge represents an absolute pressure of 44.7 psi (lb/in²).",
+        "name": "Pound per square inch - Absolute"
+    },
+    {
+        "code": "A11",
+        "description": "A unit of length equal to one hundred-millionth of a centimetre, 10–10 metre, used mainly to express wavelengths and interatomic distances.",
+        "name": "Angstrom"
+    },
+    {
+        "code": "A24",
+        "description": "Candela per Square Metre",
+        "name": "Candela per Square Metre"
+    },
+    {
+        "code": "A43",
+        "description": "A unit of mass defining the difference between the weight of a ship when completely empty and its weight when completely loaded, expressed as the number of tons.",
+        "name": "Deadweight Tonnage"
+    },
+    {
+        "code": "A71",
+        "description": "Femtometre- a quadrillionth of a metre (10 to the negative 15th power)",
+        "name": "Femtometre"
+    },
+    {
+        "code": "A86",
+        "description": "A unit of frenquecy equal to 109 Hertz",
+        "name": "Gigahertz"
+    },
+    {
+        "code": "AD",
+        "description": "A unit of information equal to 8 bits.",
+        "name": "Byte"
+    },
+    {
+        "code": "AMH",
+        "description": "A unit of electric charge defining the amount of charge accumulated by a steady flow of one ampere for one hour.",
+        "name": "Ampere Hour"
+    },
+    {
+        "code": "AMP",
+        "description": "Ampere",
+        "name": "Ampere"
+    },
+    {
+        "code": "ANN",
+        "description": "Unit of time equal to 365,25 days.",
+        "name": "Year"
+    },
+    {
+        "code": "APZ",
+        "description": "The troy ounce is a unit of imperial measure. In the present day it is most commonly used to gauge the weight and therefore the price of precious metals.  One troy ounce equals 480 grains or 31.1035 grams.",
+        "name": "Troy ounce or apothecary ounce"
+    },
+    {
+        "code": "AS",
+        "description": "A unit of count defining the number of assortments (assortment: set of items grouped in a mixed collection).",
+        "name": "Assortment"
+    },
+    {
+        "code": "ATM",
+        "description": "Standard Atmosphere",
+        "name": "Standard Atmosphere"
+    },
+    {
+        "code": "ATT",
+        "description": "Technical Atmosphere",
+        "name": "Technical Atmosphere"
+    },
+    {
+        "code": "AWG",
+        "description": "Gauge- A number referring to the outer diameter of hypodermic or suture needles. Smaller gauge numbers indicate larger outer diameters. Inner diameter depends on both gauge and wall thickness. An increasing needle-gauge size corresponds to a smaller diameter needle. This is contrary to French Gauge where an increasing gauge size corresponds to a larger external diameter.",
+        "name": "Gauge"
+    },
+    {
+        "code": "AXU",
+        "description": "A unit of measure for blood potency. Units for the anti XA activity which is a measure to the anti coagulating effect at low molecular heparins.",
+        "name": "Anti XA Unit"
+    },
+    {
+        "code": "B10",
+        "description": "In telecommunications and computing, bitrate (sometimes written bit rate, data rate or as a variable R or fb) is the number of bits that are conveyed or processed per unit of time. \n \nThe bit rate is quantified using the bits per second (bit/s or bps) unit.",
+        "name": "Bit per second"
+    },
+    {
+        "code": "B37",
+        "description": "The gravitational force of a kilogram weight or a one-kilogram mass multiplied by the acceleration of standard Earth gravity, equal to 9.8 newtons.",
+        "name": "Kilogram Force"
+    },
+    {
+        "code": "B47",
+        "description": "1000 Newtons or amount needed to accelerate 1 kilogram of mass at the rate of 1 metre per second squared multiplied by 1000 (Used to measure force of an object where the value exceeds 1000 newtons).",
+        "name": "Kilonewton"
+    },
+    {
+        "code": "B60",
+        "description": "Lumens per Square Meter",
+        "name": "Lumens per Square Meter"
+    },
+    {
+        "code": "B61",
+        "description": "The number of Lumens expressed per watt.",
+        "name": "Lumens Per Watt"
+    },
+    {
+        "code": "B62",
+        "description": "Lumen seconds is the SI derived unit of luminous energy. It is based on the lumen, the SI unit of luminous flux, and the second, the SI base unit of time.\nThe lumen second is sometimes called the Talbot (symbol T). ",
+        "name": "Lumen Seconds"
+    },
+    {
+        "code": "B64",
+        "description": "Exposure is measured in lux seconds, and can be computed from exposure value (EV) and scene luminance in a specified region.",
+        "name": "Lux Seconds"
+    },
+    {
+        "code": "BAR",
+        "description": "The bar is widely used in descriptions of pressure; 1 bar = 100 kilopascals 0.987 atmospheres.",
+        "name": "Bar (unit of pressure)"
+    },
+    {
+        "code": "BB",
+        "description": "A unit of area of 112 sheets of tin mil products (tin plate, tin free steel or black plate) 14 by 20 inches, or 31,360 square inches.",
+        "name": "Base box"
+    },
+    {
+        "code": "BFT",
+        "description": "A specialized unit of measure for the volume of rough lumber (before drying and planing with no adjustments) or planed/surfaced lumber. It is the volume of a one-foot length of a board one foot wide and one inch thick. Some countries utilize the synonym super foot or superficial foot.",
+        "name": "Board Foot"
+    },
+    {
+        "code": "BLL",
+        "description": "There are varying standards for barrel for some specific commodities, including 31 gal for beer, 40 gal for whiskey or kerosene, and 42 gal for petroleum. The general standard for liquids is 31.5 gal or half a hogshead; the general standard for dry contents is 7,056 Cubic Inches.",
+        "name": "Barrel US"
+    },
+    {
+        "code": "BP",
+        "description": "A unit of volume equal to one hundred board foot.",
+        "name": "Hundred board foot"
+    },
+    {
+        "code": "BPM",
+        "description": "Beats Per Minute",
+        "name": "Beats Per Minute"
+    },
+    {
+        "code": "BQL",
+        "description": "The becquerel (symbol Bq) is the SI derived unit of radioactivity. One Bq is defined as the activity of a quantity of radioactive material in which one nucleus decays per second. SI uses the becquerel rather than the second for the unit of activity measure to avoid dangerous mistakes: a measurement in becquerels is proportional to activity, and thus a more dangerous source of radiation gives a higher reading. A measurement in seconds is inversely proportional.",
+        "name": "Becquerel"
+    },
+    {
+        "code": "BTU",
+        "description": "The British thermal unit (BTU or Btu) is a traditional unit of energy. It is approximately the amount of energy needed to heat one pound of water one degree Fahrenheit. One Btu is equal to about 1.06 kilojoules. It is used in the power, steam generation, heating and air conditioning industries.",
+        "name": "British thermal unit"
+    },
+    {
+        "code": "BUA",
+        "description": "A bushel is an imperial and U.S. customary unit of dry volume, equivalent in each of these systems to 4 pecks or 8 gallons. It is used for volumes of dry commodities (not liquids), most often in agriculture",
+        "name": "Bushel (US)"
+    },
+    {
+        "code": "BUI",
+        "description": "A bushel is an imperial and U.S. customary unit of dry volume, equivalent in each of these systems to 4 pecks or 8 gallons. It is used for volumes of dry commodities (not liquids), most often in agriculture",
+        "name": "Bushel (UK)"
+    },
+    {
+        "code": "C16",
+        "description": "The number of millimetre per second the trade item or part of the trade item moves.",
+        "name": "Millimetre Per Second"
+    },
+    {
+        "code": "C18",
+        "description": "a millimole is one thousandth of a mole.",
+        "name": "Millimole"
+    },
+    {
+        "code": "C26",
+        "description": "A millisecond (from milli- and second; abbreviation: \nms) is a thousandth (1/1000) of a second.",
+        "name": "Millisecond"
+    },
+    {
+        "code": "C34",
+        "description": "The mole (symbol mol) is the SI base unit of amount of substance; one of a few units used to measure this physical quantity. A mole will possess mass exactly equal to the substance's molecular or atomic weight in grams. That is to say, a substance's atomic or molecular mass in atomic mass units is the same as its molar mass in grams. Because of this, one can measure the number of moles in a pure substance by weighing it and comparing the result to its molecular or atomic weight",
+        "name": "Mole"
+    },
+    {
+        "code": "C45",
+        "description": "Nanometre- a billionth of a metre (10 to the negative 9th power)",
+        "name": "Nanometre"
+    },
+    {
+        "code": "C47",
+        "description": "A nanosecond is an SI unit of time equal to one thousand-millionth of a second (or one billionth of a second), that is, 10−9 seconds.",
+        "name": "Nano Seconds"
+    },
+    {
+        "code": "C52",
+        "description": "Picometre- a trillionth of a metre (10 to the negative 12th power)",
+        "name": "Picometre"
+    },
+    {
+        "code": "C65",
+        "description": "Pascal second ( N s / m 2 ) is the unit of dynamic viscosity which is also known as the absolute viscosity of the fluid. It is the fluids internal resistance to flow . e.g.: water has dynamic viscosity of 1.787 at 273K or 0 degrees Celsius. and 1.002 Pa-second at 293K i.e. 20degrees Celsius. ",
+        "name": "Pascal Seconds"
+    },
+    {
+        "code": "C75",
+        "description": "Picowatt is a derived metric SI (System International) measurement unit of power.  The picowatt is equal to one trillionth of a watt (10-12W).",
+        "name": "Picowatt"
+    },
+    {
+        "code": "CEL",
+        "description": "Celsius (also historically known as centigrade) is a temperature scale, the freezing point of water is 0 degrees Celsius (°C) and the boiling point 100 °C (at standard atmospheric pressure), placing the boiling and freezing points of water exactly 100 degrees apart.",
+        "name": "Degree Celsius"
+    },
+    {
+        "code": "CFU",
+        "description": "Colony Forming Units: is a rough estimate of the number of viable bacteria or fungal cells in a sample.",
+        "name": "Colony Forming Units"
+    },
+    {
+        "code": "CG",
+        "description": "A unit of count defining the number of units of card (card: thick stiff paper or cardboard).",
+        "name": "Card"
+    },
+    {
+        "code": "CGM",
+        "description": "A centigram is one hundredth (1/100) of a gram",
+        "name": "Centigram"
+    },
+    {
+        "code": "CLT",
+        "description": "A centilitre is one hundredth (1/100) of a litre",
+        "name": "Centilitre"
+    },
+    {
+        "code": "CMK",
+        "description": "A square centimetre is an area of a square whose sides are exactly 1 centimetre in length.",
+        "name": "Square centimetre"
+    },
+    {
+        "code": "CMQ",
+        "description": "A cubic centimetre is the volume of a cube of side length one centimetre (0.01 m) equal to a millilitre.",
+        "name": "Cubic centimetre"
+    },
+    {
+        "code": "CMT",
+        "description": "A centimetre is  equal to one hundredth of a metre.",
+        "name": "Centimetre"
+    },
+    {
+        "code": "CTM",
+        "description": "Metric Carat.",
+        "name": "Metric Carat"
+    },
+    {
+        "code": "CWA",
+        "description": "A unit of weight in the U.S. Customary System equal to 100 pounds (45.36 kilograms); also called cental.",
+        "name": "Hundred pound (cwt) / hundred weight (US)"
+    },
+    {
+        "code": "CWI",
+        "description": " A unit of weight in the British Imperial System equal to 112 pounds (50.80 kilograms); also called quintal.",
+        "name": "Hundred weight (UK)"
+    },
+    {
+        "code": "D03",
+        "description": "A unit of accumulated energy of a thousand watts over a period of one hour.",
+        "name": "Kilowatt / hour"
+    },
+    {
+        "code": "D19",
+        "description": "Square metre kelvin per watt .The definition is the thermal resistance (or Rd value) of the material, which is measured by the thickness of the material layer divided by the thermal conductivity of the material. and is expressed in m²K/W.",
+        "name": "Square Metre Kelvin Per Watt"
+    },
+    {
+        "code": "D29",
+        "description": "A unit of frenquecy equal to 1012 Hertz",
+        "name": "Terahertz"
+    },
+    {
+        "code": "D30",
+        "description": "A terajoule is 10¹² joules",
+        "name": "Terajoule"
+    },
+    {
+        "code": "D32",
+        "description": "A terawatt hour is 109 * kilowat hour or 3.6 petajoules.",
+        "name": "Terawatt hour"
+    },
+    {
+        "code": "D40",
+        "description": "References SI system of units of measure",
+        "name": "Thousand Litre"
+    },
+    {
+        "code": "D43",
+        "description": "Atomic Mass Units",
+        "name": "Atomic Mass Units (AMU)"
+    },
+    {
+        "code": "D5",
+        "description": "A kilogram-force per square centimeter (kgf/cm2), often just kilogram per square centimeter (kg/cm2), or kilopond per square centimeter is a unit of pressure using metric units. Its use is now deprecated; it is not a part of the International \nSystem of Units (SI), the modern metric system. \nThe unit is similar to the English unit psi (lbf/in2).",
+        "name": "Kilogram per square centimetre"
+    },
+    {
+        "code": "D55",
+        "description": "Heat Transfer Coefficient",
+        "name": "Heat Transfer Coefficient"
+    },
+    {
+        "code": "D63",
+        "description": "A unit of count defining the number of books (book: set of items bound together or written document of a material whole).",
+        "name": "Book"
+    },
+    {
+        "code": "D70",
+        "description": "A calorie is 1/100 of the amount of energy required to warm one gram of air-free water from 0 °C to 100 °C at standard atmospheric pressure; this is about 4.190 J.  Its use is archaic, having been replaced by the SI unit of energy, the joule. However, in many countries it remains in common use as a unit of food energy. In the context of nutrition, and especially food labelling, the calorie is approximately equal to 4.1868 joules (J), and energy values are normally quoted in kilojoules (kJ) and kilocalories (kcal).",
+        "name": "Calorie - International Table (IT)"
+    },
+    {
+        "code": "DAY",
+        "description": "A day is one three hundreds and sixty fifth (1/365) of a year",
+        "name": "Days"
+    },
+    {
+        "code": "DD",
+        "description": "A measurement of plane angle, representing 1⁄360 of a full rotation; one degree is equivalent to π/180 radians.",
+        "name": "Degree (Unit of Angle)"
+    },
+    {
+        "code": "DG",
+        "description": "A decigram is one tenth (1/10) of a gram.",
+        "name": "Decigram"
+    },
+    {
+        "code": "DLT",
+        "description": "A decilitre is one tenth (1/10) of a litre.",
+        "name": "Decilitre"
+    },
+    {
+        "code": "DMK",
+        "description": "A square deciimetre is an area of a square whose sides are exactly 1 deciimetre in length.",
+        "name": "Square decimetre"
+    },
+    {
+        "code": "DMQ",
+        "description": "A cubic decimetre is the volume of a cube of side length one decimetre (0.1 m)",
+        "name": "Cubic decimetre"
+    },
+    {
+        "code": "DMT",
+        "description": "A decimetre is  equal to one tenth of a metre.",
+        "name": "Decimetre"
+    },
+    {
+        "code": "DRA",
+        "description": "The dram (archaic spelling drachm) was historically both a coin and a weight. Currently it is both a small mass in the Apothecaries' system of weights and a small unit of volume. This unit is called more correctly fluid dram or in contraction also fluidram. The term also refers to the fluid dram, a measure of capacity equal 1⁄8 of a fluid ounce, which means it is exactly equal to 3.696 691 195 312 5 mL in the United States.",
+        "name": "Dram (US)"
+    },
+    {
+        "code": "DRI",
+        "description": "The dram (archaic spelling drachm) was historically both a coin and a weight. Currently it is both a small mass in the Apothecaries' system of weights and a small unit of volume. This unit is called more correctly fluid dram or in contraction also fluidram. The fluid dram is defined as 1⁄8 of a fluid ounce, which means it is exactly equal to 3.551 632 812 500 0 mL in the Commonwealth and Ireland. In England dram came to mean a small draught of cordial or alcohol; hence the term dram-house for the taverns where one could purchase a dram.",
+        "name": "Dram (UK)"
+    },
+    {
+        "code": "DZN",
+        "description": "A unit of count defining the number of units in multiples of 12.",
+        "name": "Dozen"
+    },
+    {
+        "code": "E09",
+        "description": "Milliampere hour",
+        "name": "Milliampere hour"
+    },
+    {
+        "code": "E14",
+        "description": "A unit of energy equal to 1000 calories.",
+        "name": "Kilocalorie"
+    },
+    {
+        "code": "E20",
+        "description": "A unit of information equal to 10⁶ (1000000) bits (binary digits) per second.",
+        "name": "10⁶ (1000000) bits (binary digits) per second"
+    },
+    {
+        "code": "E27",
+        "description": "A unit of count defining the number of doses (dose: \na definite quantity of a medicine or drug).",
+        "name": "Dose"
+    },
+    {
+        "code": "E32",
+        "description": "Litre Per Hour",
+        "name": "Litre Per Hour"
+    },
+    {
+        "code": "E34",
+        "description": "A unit of information equal to 109 bytes.",
+        "name": "Gigabyte"
+    },
+    {
+        "code": "E35",
+        "description": "A unit of information equal to 10¹² bytes.",
+        "name": "Terabyte"
+    },
+    {
+        "code": "E36",
+        "description": "A unit of information equal to 10¹5 bytes. 1000 Terabytes = 1 Petabyte",
+        "name": "Petabyte"
+    },
+    {
+        "code": "E37",
+        "description": "A unit of count defining the number of pixels (pixel: \npicture element).",
+        "name": "Pixel"
+    },
+    {
+        "code": "E39",
+        "description": "A unit of count defining the number of dots per linear inch as a measure of the resolution or sharpness of a graphic image.",
+        "name": "Dots per inch"
+    },
+    {
+        "code": "E4",
+        "description": "A unit of mass defining the total number of kilograms before deductions.",
+        "name": "Gross kilogram"
+    },
+    {
+        "code": "E55",
+        "description": "A unit of count defining the number of times an object is used.",
+        "name": "Use"
+    },
+    {
+        "code": "EA",
+        "description": "A unit of count defining the number of items regarded as separate units.",
+        "name": "Each"
+    },
+    {
+        "code": "ELU",
+        "description": "Enzyme-linked immunosorbent assay unit, is always associated with a product and a method.",
+        "name": "ELISA Units"
+    },
+    {
+        "code": "F27",
+        "description": "Gram Per Hour",
+        "name": "Gram Per Hour"
+    },
+    {
+        "code": "F79",
+        "description": "Inch of mercury conversion of  3,386 39 × 10³ kg x m⁻¹ x s⁻² OR 3386.389 pascals.",
+        "name": "Inch of Mercury"
+    },
+    {
+        "code": "FAH",
+        "description": " The Fahrenheit temperature scale, the freezing point of water is 32 degrees Fahrenheit (°F) and the boiling point 212 °F (at standard atmospheric pressure), placing the boiling and freezing points of water exactly 180 degrees apart.",
+        "name": "Degree Fahrenheit"
+    },
+    {
+        "code": "FH",
+        "description": "One millionth (10 -6 ) of a mole.",
+        "name": "Micromole"
+    },
+    {
+        "code": "FJ",
+        "description": "Sizing Factor",
+        "name": "Sizing Factor"
+    },
+    {
+        "code": "FOT",
+        "description": "The international foot is defined to be equal to 0.3048 meters.",
+        "name": "Foot"
+    },
+    {
+        "code": "FP",
+        "description": "A non SI unit of Pressure approximately equal to 47.88025 PASCAL's.",
+        "name": "Pound per square foot"
+    },
+    {
+        "code": "FR",
+        "description": "The number of foot per minute the trade item or part of the trade item moves.",
+        "name": "Foot Per Minute"
+    },
+    {
+        "code": "FS",
+        "description": "The number of foot per second the trade item or part of the trade item moves.",
+        "name": "Foot Per Second"
+    },
+    {
+        "code": "FTK",
+        "description": "A square foot is an area of a square whose sides are exactly 1 foot in length.",
+        "name": "Square foot"
+    },
+    {
+        "code": "FTQ",
+        "description": "A cubic foot is the volume of a cube of side length one foot (0.3048 m) .",
+        "name": "Cubic foot"
+    },
+    {
+        "code": "G2",
+        "description": "US gallon per minute",
+        "name": "US Gallon Per Minute"
+    },
+    {
+        "code": "G21",
+        "description": "Cup (US)",
+        "name": "Cup (US)"
+    },
+    {
+        "code": "G23",
+        "description": "A peck is an imperial and U.S. customary unit of dry volume, equivalent in each of these systems to 2 gallons, 8 dry quarts, or 16 dry pints.",
+        "name": "Peck"
+    },
+    {
+        "code": "G24",
+        "description": "Tablespoon. 1/2 fluid ounces, 3 teaspoons, 15 millilitres",
+        "name": "Tablespoon"
+    },
+    {
+        "code": "G25",
+        "description": "Teaspoon. 1/6 fluid ounces or  5 millilitres",
+        "name": "Teaspoon"
+    },
+    {
+        "code": "G26",
+        "description": "The stere or stère is a unit of volume in the original metric system equal to one cubic metre. The stère is typically used for measuring large quantities of firewood or other cut wood,",
+        "name": "Stere"
+    },
+    {
+        "code": "GBQ",
+        "description": "A unit of activity equal to 109 becquerels.",
+        "name": "Gigabecquerel"
+    },
+    {
+        "code": "GFI",
+        "description": "A unit of mass defining the number of grams of a fissile isotope (fissile isotope: an isotope whose nucleus is able to be split when irradiated with low energy neutrons).",
+        "name": "Gram of Fissile Isotope"
+    },
+    {
+        "code": "GL",
+        "description": "A unit of measurement of mass concentration that shows how many grams of a certain substance are present in one litre.",
+        "name": "Gram Per Litre"
+    },
+    {
+        "code": "GLI",
+        "description": "The imperial (UK) gallon was legally defined as 4.54609 litres.",
+        "name": "Gallon (UK)"
+    },
+    {
+        "code": "GLL",
+        "description": "The U.S. liquid gallon is legally defined as 231 cubic inches, and is equal to exactly 3.785411784 litres or about 0.133680555 cubic feet.",
+        "name": "Gallon (US)"
+    },
+    {
+        "code": "GM",
+        "description": "In the metric system, the density of all types of paper, paperboard, and fabric, is expressed in terms of grams per square meter (g/m²).  \nThis quantity is commonly called grammage both in \nEnglish and French (ISO 536), though many English-speaking countries still refer to the \"weight\". \nThe term density here is used somewhat incorrectly, as density is mass by volume. More precisely, it is a measure of the area density, areal density, or surface density.",
+        "name": "Gram per square metre"
+    },
+    {
+        "code": "GRM",
+        "description": "A gram is defined as one one-thousandth of the kilogram (1×10-3 kg).",
+        "name": "Gram"
+    },
+    {
+        "code": "GRN",
+        "description": "A grain or troy grain is precisely 64.79891 milligrams. Exactly 7,000 grains per avoirdupois pound.",
+        "name": "Grain"
+    },
+    {
+        "code": "GRO",
+        "description": "A unit of count defining the number of units in multiples of 144 (12 x 12).",
+        "name": "Gross"
+    },
+    {
+        "code": "GWH",
+        "description": "A gigaawatt hour is 109 kilowat hour or 3.6 terajoules.",
+        "name": "Gigawatt hour"
+    },
+    {
+        "code": "H49",
+        "description": "The number of centimetre per hour the trade item or part of the trade item moves.",
+        "name": "Centimetre Per Hour"
+    },
+    {
+        "code": "H67",
+        "description": "The number of millimetre per hour the trade item or part of the trade item moves.",
+        "name": "Millimetre Per Hour"
+    },
+    {
+        "code": "H79",
+        "description": "The French scale (most correctly abbreviated as Fr, but also often abbreviated as FR or F) is commonly used to measure the catheter size (Circumference is in millimeters), in which 1 Fr = 0.33 mm in diameter. In the French Gauge system as it is also known, the diameter in millimeters of the catheter can be determined by dividing the French size by 3, thus an increasing French size corresponds with a larger diameter catheter. The following equations summarize the relationships: D(mm) = Fr/3 or Fr = D(mm)*3",
+        "name": "French gauge"
+    },
+    {
+        "code": "H81",
+        "description": "The number of millimetre per minute the trade item or part of the trade item moves.",
+        "name": "Millimetre Per Minute"
+    },
+    {
+        "code": "H83",
+        "description": "Litre per kilogram.",
+        "name": "Litre per kilogram"
+    },
+    {
+        "code": "H87",
+        "description": "A unit of count defining the number of pieces (piece: a single item, article or exemplar).",
+        "name": "Piece"
+    },
+    {
+        "code": "HC",
+        "description": "A unit of count defining the number of units counted in multiples of 100.",
+        "name": "Hundred count"
+    },
+    {
+        "code": "HD",
+        "description": "A unit of count defining the number of units in multiplt of six (6).",
+        "name": "Half dozen"
+    },
+    {
+        "code": "HEP",
+        "description": "Histamine equivalent prick testing for allergen.",
+        "name": "Histamine Equivalent Prick"
+    },
+    {
+        "code": "HGM",
+        "description": "A hectogram is one hundred (100) grams",
+        "name": "Hectogram"
+    },
+    {
+        "code": "HLT",
+        "description": "A hectolitre is one hundred (100) litres.",
+        "name": "Hectolitre"
+    },
+    {
+        "code": "HM",
+        "description": "The number of mile per hour the trade item or part of the trade item moves.",
+        "name": "Mile Per Hour (statute mile)"
+    },
+    {
+        "code": "HN",
+        "description": "Conventional millimetre of mercury mm Hg.",
+        "name": "Conventional millimetre of mercury"
+    },
+    {
+        "code": "HTZ",
+        "description": "A unit of frequency defined as the number of complete cycles per second; it is the basic unit of frequency in the International System of Units (SI).",
+        "name": "Hertz"
+    },
+    {
+        "code": "HUR",
+        "description": "An hour is a unit of measurement of time of the duration of 60 minutes, or 3600 seconds. It is 1/24 of a median Earth day.",
+        "name": "Hour"
+    },
+    {
+        "code": "INH",
+        "description": "An international inch is defined to be equal to 25.4 millimeters.",
+        "name": "Inches"
+    },
+    {
+        "code": "INK",
+        "description": "A square inch is an area of a square whose sides are exactly 1 inch in length.",
+        "name": "Square inch"
+    },
+    {
+        "code": "INQ",
+        "description": "A cubic inch is the volume of a cube of side length one inch (0.254 m).",
+        "name": "Cubic inch"
+    },
+    {
+        "code": "IU",
+        "description": "The number of inch per second the trade item or part of the trade item moves.",
+        "name": "Inch Per Second"
+    },
+    {
+        "code": "JOU",
+        "description": "A joule is the energy exerted by a force of one newton acting to move an object through a distance of one metre.",
+        "name": "Joule"
+    },
+    {
+        "code": "K14",
+        "description": "The number of foot per hour the trade item or part of the trade item moves.",
+        "name": "Foot Per Hour"
+    },
+    {
+        "code": "K30",
+        "description": "Gallon (US liquid) per second",
+        "name": "Gallon (US liquid) Per Second"
+    },
+    {
+        "code": "K43",
+        "description": "Horsepower (electric) -  Automotive horsepower is defined as \"a unit of power equal to 550 foot-pounds per second (745.7 watts)\".\n",
+        "name": "Horsepower"
+    },
+    {
+        "code": "K6",
+        "description": "A kilolitre is one thousand (1000) litres.",
+        "name": "Kilolitre"
+    },
+    {
+        "code": "KDW",
+        "description": "Kilogram drained net weight.",
+        "name": "Kilogram drained net weight"
+    },
+    {
+        "code": "KGM",
+        "description": "A unit of mass equal to one thousand grams.",
+        "name": "Kilogram"
+    },
+    {
+        "code": "KHY",
+        "description": "Kilogram of hydrogen peroxide.",
+        "name": " Kilogram of hydrogen peroxide"
+    },
+    {
+        "code": "KHZ",
+        "description": "A unit of frenquecy equal to 103 Hertz",
+        "name": "Kilohertz"
+    },
+    {
+        "code": "KIU",
+        "description": "Kallikrein Inactivator Unit per Milliliter definition: An arbitrary unit of a kallikrein inactivator concentration equal to the concentration at which one milliliter of the mixture contains one unit of the kallikrein inactivator",
+        "name": "Kallikrein inactivator unit."
+    },
+    {
+        "code": "KJO",
+        "description": "A kilojoule is 1000 joules",
+        "name": "Kilojoule"
+    },
+    {
+        "code": "KMA",
+        "description": "Kilogram of methylamine",
+        "name": "Kilogram of methylamine"
+    },
+    {
+        "code": "KMH",
+        "description": "The number of kilometre per hour the trade item or part of the trade item moves.",
+        "name": "Kilometre Per Hour"
+    },
+    {
+        "code": "KMT",
+        "description": "A kilometre is one thousand (1000) metres",
+        "name": "Kilometre"
+    },
+    {
+        "code": "KNI",
+        "description": "Kilogram of nitrogen",
+        "name": "Kilogram of nitrogen"
+    },
+    {
+        "code": "KNM",
+        "description": "Kilonewton Per Square Metre",
+        "name": "Kilonewton Per Square Metre"
+    },
+    {
+        "code": "KNT",
+        "description": "The number of knots the trade item or part of the trade item moves. A Knot is a unit of speed equal to one nautical mile (1.852 km) per hour, approximately 1.151 mph.",
+        "name": "Knot"
+    },
+    {
+        "code": "KO",
+        "description": "The milliequivalence caustic potash per gram of product. A unit of count defining the number of milligrams of potassium hydroxide per gram of \nproduct as a measure of the concentration of potassium hydroxide in the product.",
+        "name": "The milliequivalence caustic potash per gram of product"
+    },
+    {
+        "code": "KPA",
+        "description": "Kilopascal- a thousand pascals (10 to the 3rd power)",
+        "name": "Kilopascal- a thousand pascals (10 to the 3rd power)"
+    },
+    {
+        "code": "KPH",
+        "description": "Kilogram of potassium hydroxide (caustic potash)",
+        "name": "Kilogram of potassium hydroxide (caustic potash)"
+    },
+    {
+        "code": "KPO",
+        "description": "Kilogram of potassium oxide",
+        "name": "Kilogram of potassium oxide"
+    },
+    {
+        "code": "KPP",
+        "description": "Kilogram of phosphorus pentoxide (phosphoric anhydride).",
+        "name": "Kilogram of phosphorus pentoxide (phosphoric anhydride)"
+    },
+    {
+        "code": "KSD",
+        "description": "Kilogram of substance 90% dry",
+        "name": "Kilogram of substance 90% dry"
+    },
+    {
+        "code": "KSH",
+        "description": "Kilogram of sodium hydroxide (caustic soda)",
+        "name": "Kilogram of sodium hydroxide (caustic soda)"
+    },
+    {
+        "code": "KT",
+        "description": "A unit of count defining the number of kits (kit: tub, barrel or pail).",
+        "name": "Kit"
+    },
+    {
+        "code": "KUR",
+        "description": "A unit of mass equal to one thousand grams of uranium.",
+        "name": "Kilogram of Uranium"
+    },
+    {
+        "code": "KWH",
+        "description": "A kilowatt hour is a unit of energy equal to 3.6 megajoules. \nIt is also a common commercial unit of electric energy representing the amount of energy delivered at a rate of 1,000 watts over a period of one hour.",
+        "name": "Kilowatt hour"
+    },
+    {
+        "code": "KWT",
+        "description": "A kilowatt is one thousand (1000) watts",
+        "name": "Kilowatt"
+    },
+    {
+        "code": "LBR",
+        "description": "The international avoirdupois pound of exactly 0.45359237 kilogram.",
+        "name": "Pound"
+    },
+    {
+        "code": "LD",
+        "description": "Litre per day.",
+        "name": "Litre / Day"
+    },
+    {
+        "code": "LF",
+        "description": "A unit of count defining the number of feet (12inch) in length of a uniform width object.",
+        "name": "Linear foot"
+    },
+    {
+        "code": "LK",
+        "description": "A unit of distance equal to 0.01 chain.",
+        "name": "Link"
+    },
+    {
+        "code": "LM",
+        "description": "A unit of count defining the number of metres in length of a uniform width object.",
+        "name": "Linear metre"
+    },
+    {
+        "code": "LPA",
+        "description": "Litre of pure alcohol.",
+        "name": "Litre of pure alcohole"
+    },
+    {
+        "code": "LR",
+        "description": "A unit of count defining the number of layers.",
+        "name": "Layer"
+    },
+    {
+        "code": "LTN",
+        "description": "Ton (UK) = 1016 Kg or 2240 Lb.",
+        "name": "Ton (UK) or long ton (US)"
+    },
+    {
+        "code": "LTR",
+        "description": "A litre is defined as a special name for a cubic decimetre (1 L = 1 dm3 = 103 cm3).",
+        "name": "Litre"
+    },
+    {
+        "code": "LUX",
+        "description": "The International System unit of illumination, equal to one lumen per square meter.",
+        "name": "Lux"
+    },
+    {
+        "code": "M57",
+        "description": "The number of mile per minute the trade item or part of the trade item moves.",
+        "name": "Mile Per Minute "
+    },
+    {
+        "code": "M58",
+        "description": "The number of mile per second the trade item or part of the trade item moves.",
+        "name": "Mile Per Second "
+    },
+    {
+        "code": "M60",
+        "description": "The number of meter per hour the trade item or part of the trade item moves.",
+        "name": "Metre Per Hour"
+    },
+    {
+        "code": "M62",
+        "description": "The number of kilometre per second the trade item or part of the trade item moves.",
+        "name": "Kilometre Per Second "
+    },
+    {
+        "code": "M63",
+        "description": "The number of inch per minute the trade item or part of the trade item moves.",
+        "name": "Inch Per Minute"
+    },
+    {
+        "code": "M64",
+        "description": "The number of yard per second the trade item or part of the trade item moves.",
+        "name": "Yard Per Second"
+    },
+    {
+        "code": "M65",
+        "description": "The number of yard per minute the trade item or part of the trade item moves.",
+        "name": "Yard Per Minute"
+    },
+    {
+        "code": "M66",
+        "description": "The number of yard per hour the trade item or part of the trade item moves.",
+        "name": "Yard Per Hour"
+    },
+    {
+        "code": "MAW",
+        "description": "A unit of power defining the rate of energy transferred or consumed when a current of 1000 amperes flows due to a potential of 1000 volts at unity power factor.",
+        "name": "Megawatt"
+    },
+    {
+        "code": "MBR",
+        "description": "Millibar- a hundred pascals (10 to the 2nd power)",
+        "name": "Millibar"
+    },
+    {
+        "code": "MC",
+        "description": "A microgram is one millionth of a gram (0.000001)",
+        "name": "Microgram"
+    },
+    {
+        "code": "MEQ",
+        "description": "mEq or milliequivalents, the measure is used in terms of milliequivalents of solute per liter of solvent (or milliNormal  where mEq/L = mN). This is especially common for measurement of compounds in biological fluids; for instance, the healthy level of potassium in the blood of a human is defined between 3.5 and 5.0 mEq/L. To better be able to denote the units of measure for nutrients as used in business today.",
+        "name": "Milliequivalents"
+    },
+    {
+        "code": "MGM",
+        "description": "A milligram is one thousandth of a gram (0.001)",
+        "name": "Milligram"
+    },
+    {
+        "code": "MHZ",
+        "description": "A unit of frenquecy equal to 106 Hertz",
+        "name": "Megahertz"
+    },
+    {
+        "code": "MIK",
+        "description": "A square mile is an area of a square whose sides are exactly 1 mile in length.",
+        "name": "Square mile"
+    },
+    {
+        "code": "MIN",
+        "description": "A minute is a unit of time equal to 1/60th of an hour or 60 seconds",
+        "name": "Minute (unit of time)"
+    },
+    {
+        "code": "MIU",
+        "description": "A unit of count defining the number of international units in multiples of 106.",
+        "name": "Million International Unit (NIE)"
+    },
+    {
+        "code": "MLT",
+        "description": "A millilitre is one thousandth of a litre (0.001)",
+        "name": "Millilitre"
+    },
+    {
+        "code": "MMK",
+        "description": "A square millimetre is an area of a square whose sides are exactly 1 millimetre in length.",
+        "name": "Square millimetre"
+    },
+    {
+        "code": "MMQ",
+        "description": "A cubic millimetre is the volume of a cube of side length one milliimetre (0.001 m)",
+        "name": "Cubic millimetre"
+    },
+    {
+        "code": "MMT",
+        "description": "A millimetre is one thousandth of a metre (0.001)",
+        "name": "Millimetre"
+    },
+    {
+        "code": "MON",
+        "description": "Unit of time equal to 1/12 of a year of 365,25 days",
+        "name": "Month"
+    },
+    {
+        "code": "MPN",
+        "description": "Most Probable Number: is a method of getting quantitative data on concentrations of discrete items from positive/negative (incidence) data..",
+        "name": "Most Probable Number"
+    },
+    {
+        "code": "MQH",
+        "description": "Cubic Metre Per Hour",
+        "name": "Cubic Metre Per Hour"
+    },
+    {
+        "code": "MTK",
+        "description": "A square metre is an area of a square whose sides are exactly 1 metre in length.",
+        "name": "Square metre"
+    },
+    {
+        "code": "MTQ",
+        "description": "A cubic metre is the volume of a cube of side length one metre.",
+        "name": "Cubic metre"
+    },
+    {
+        "code": "MTR",
+        "description": "The metre is the basic unit of length in the International System of Units (SI).",
+        "name": "Metre"
+    },
+    {
+        "code": "MTS",
+        "description": "Defines the speed defined by distance in metres divided by time in seconds.",
+        "name": "Metre Per Second"
+    },
+    {
+        "code": "MWH",
+        "description": "A unit of energy defining the total amount of bulk energy transferred or consumed.",
+        "name": "Megawatt hour (1000 kW.h)"
+    },
+    {
+        "code": "N16",
+        "description": "Non SI-conforming unit of pressure according to the Anglo-American and Imperial system for units, whereas the value of 1 inHg meets the static pressure, which is generated by a mercury at a temperature of 32°F with a height of 1 inch.3,386 38 x 10³ Pa OR 3386.38 pascals.",
+        "name": "Inch of Mercury (32 ºF)"
+    },
+    {
+        "code": "N17",
+        "description": "Non SI-conforming unit of pressure according to the Anglo-American and Imperial system for units, whereas the value of 1 inHg meets the static pressure, which is generated by a mercury at a temperature of 60°F with a height of 1 inch.3,376 85 x 10³ Pa OR 3376.85 pascals.",
+        "name": "Inch of Mercury (60 ºF)"
+    },
+    {
+        "code": "NCL",
+        "description": "Number of cells",
+        "name": "Number of cells"
+    },
+    {
+        "code": "NEW",
+        "description": "Newton",
+        "name": "Newton"
+    },
+    {
+        "code": "NIU",
+        "description": "A unit of count defining the number of international units. \nThe International Unit is a unit of measurement for the amount of a substance, based on measured biological activity or effect. \nThe unit is used for vitamins, hormones, some medications, vaccines, blood products, and similar biologically active substances",
+        "name": "Number of International Units"
+    },
+    {
+        "code": "NPR",
+        "description": "Number of pairs",
+        "name": "Number of pairs"
+    },
+    {
+        "code": "NU",
+        "description": "Newton Metre",
+        "name": "Newton Metre"
+    },
+    {
+        "code": "OHM",
+        "description": "A unit for electrical impedance, the ratio of the voltage phasor to the electric current phasor.",
+        "name": "Ohm"
+    },
+    {
+        "code": "ON",
+        "description": "The weight of one square yard of the material expressed in ounces.   \nCommonly used to express the density or weight of all types of paper, paperboard, and fabric, e.g. 20 OZ or 20 Weight denim has an area density of 20 oz/yd2. \nThe term density here is used somewhat incorrectly, as density is mass by volume. More precisely, it is a measure of the area density, areal density, or surface density.",
+        "name": "Ounces per square yard"
+    },
+    {
+        "code": "ONZ",
+        "description": " A unit of mass with several definitions, the most \ncommonly used of which are equal to approximately 30 grams",
+        "name": "Ounce"
+    },
+    {
+        "code": "OPM",
+        "description": "Oscillations Per Minute",
+        "name": "Oscillations Per Minute"
+    },
+    {
+        "code": "OZA",
+        "description": "A fluid ounce (US) is equal to one sixteenth (1/16) of a US pint or   29.5735295625 millilitres .",
+        "name": "Fluid ounce (US)"
+    },
+    {
+        "code": "OZI",
+        "description": "A fluid ounce (UK) is equal to one thirtieth (1/30) of a UK pint or 28.4130625 millilitres.",
+        "name": "Fluid ounce (UK)"
+    },
+    {
+        "code": "P1",
+        "description": "A unit of proportion equal to 0.01.",
+        "name": "Percent"
+    },
+    {
+        "code": "PAL",
+        "description": "The pascal (symbol: Pa) is the SI derived unit of pressure, stress, Young's modulus and tensile strength. It is a measure of force per unit area, defined as one newton per square metre.",
+        "name": "Pascal"
+    },
+    {
+        "code": "PD",
+        "description": "A unit of count defining the number of pads (pad: block of paper sheets fastened together at one end).",
+        "name": "Pad"
+    },
+    {
+        "code": "PFU",
+        "description": "Plaque Forming unit(s)",
+        "name": "Plaque Forming unit(s)"
+    },
+    {
+        "code": "PNT",
+        "description": "A single unit on a scale of measurement as part of an incentive program or pricing structure used as a means of making a quantitative evaluation.",
+        "name": "Point"
+    },
+    {
+        "code": "PR",
+        "description": "A unit of count defining the number of pairs (pair: \nitem described by two's).",
+        "name": "Pair"
+    },
+    {
+        "code": "PRS",
+        "description": "Potential Renal Solute Load",
+        "name": "Potential Renal Solute Load"
+    },
+    {
+        "code": "PS",
+        "description": "The pound-force per square inch (symbol: psi or lbf/in2 or lbf/in2) is a unit of pressure or of stress based on avoirdupois units. It is the pressure resulting from a force of one pound-force applied to an area of one square inch. \nOther abbreviations are used that append a modifier to \"psi\". However, the US National Institute of Standards and Technology recommends that, to avoid confusion, any modifiers be instead applied to the quantity being measured rather than the unit of measure[1] For example, \"Pg = 100 psi\" rather than \"P = 100 psig\".",
+        "name": "Pound-force per square inch"
+    },
+    {
+        "code": "PTD",
+        "description": "The United States dry pint is equal one eighth of a US dry gallon or one half US dry quarts. It is used in the United States but is not as common as the liquid pint.",
+        "name": "Dry Pint (US)"
+    },
+    {
+        "code": "PTI",
+        "description": "A pint (UK) is equal to 1/8 Gallon (UK); used primarly as a measure for beer and cider when sold by the glass.",
+        "name": "Pint (UK)"
+    },
+    {
+        "code": "PTL",
+        "description": "The US liquid pint is equal one eighth of a United States liquid gallon.",
+        "name": "Liquid pint (US)"
+    },
+    {
+        "code": "PTN",
+        "description": "Portion",
+        "name": "Portion:"
+    },
+    {
+        "code": "Q30",
+        "description": " The activity of the (solvated) hydrogen ion (a logarithmic measure used to state the acidity or alkalinity of a chemical solution).",
+        "name": "pH (potential of Hydrogen)"
+    },
+    {
+        "code": "Q32",
+        "description": "Femtolitre- Femtolitre is the metric unit of volume equal to one thousand trillionth (European) or one quadrillionth (American) litre. One femtolitre is the same as one cubic micrometre (μm3), , which can be represented numerically as 0.00000000000001/liter.",
+        "name": "Femtolitre"
+    },
+    {
+        "code": "Q33",
+        "description": "Picoliter is the metric unit of volume equal to a \ntrillionth (one millionth of a millionth) of a liter, which can be represented numerically as 0.000000000001/liter. just as the prefix nano denotes a billionth part",
+        "name": " Picolitre"
+    },
+    {
+        "code": "Q34",
+        "description": "Nanolitre is the metric unit of volume equal to one billionth of a litre, which can be represented numerically as 0.000000001/liter.",
+        "name": "Nanolitre"
+    },
+    {
+        "code": "QB",
+        "description": "A unit of count defining the number of hardcopy pages (hardcopy page: a page rendered as printed or written output on paper, film, or other permanent medium).",
+        "name": "Page - hardcopy"
+    },
+    {
+        "code": "QTD",
+        "description": "A US dry quart is equal to 1/32 of a US bushel, exactly 1.101220942715 litres.",
+        "name": "Quart (US dry)"
+    },
+    {
+        "code": "QTL",
+        "description": "A US liquid quart exactly equals 57.75 cubic inches, which is exactly equal to 0.946352946 litres.",
+        "name": "Liquid quart (US)"
+    },
+    {
+        "code": "R9",
+        "description": "Thousand cubic metre",
+        "name": "Thousand cubic metre"
+    },
+    {
+        "code": "RPM",
+        "description": "Revolutions Per Minute",
+        "name": "Revolutions Per Minute"
+    },
+    {
+        "code": "S4",
+        "description": "Metre squared per second.",
+        "name": "Square Metre / Second"
+    },
+    {
+        "code": "SEC",
+        "description": "A second is a unit of time equal to 1/60th of an minute.",
+        "name": "Second (unit of time)"
+    },
+    {
+        "code": "SET",
+        "description": "A unit of count defining the number of sets (set: a number of objects grouped together).",
+        "name": "Set"
+    },
+    {
+        "code": "SMI",
+        "description": "A statute mile of 5,280 feet (exactly 1,609.344 meters).",
+        "name": "Mile (statute mile)"
+    },
+    {
+        "code": "SQE",
+        "description": "Number of allergens based on the SQ-E unit",
+        "name": "SQ-E"
+    },
+    {
+        "code": "STN",
+        "description": "Ton (US) = 2000 Lb or 907 Kg",
+        "name": "Ton (US) or short ton (UK)"
+    },
+    {
+        "code": "SX",
+        "description": "A unit of count defining the number of shipments (shipment: an amount of goods shipped or transported).",
+        "name": "Shipment"
+    },
+    {
+        "code": "T3",
+        "description": "Thousand piece",
+        "name": "Thousand piece"
+    },
+    {
+        "code": "TNE",
+        "description": "Metric ton = 1000 Kg",
+        "name": "Tonne"
+    },
+    {
+        "code": "TPI",
+        "description": "Teeth Per Inch",
+        "name": "Teeth Per Inch"
+    },
+    {
+        "code": "U2",
+        "description": "A unit of count defining the number of tablets \n(tablet: a small flat or compressed solid object).",
+        "name": "Tablet"
+    },
+    {
+        "code": "UA",
+        "description": "Torr",
+        "name": "Torr"
+    },
+    {
+        "code": "VLT",
+        "description": "Volt",
+        "name": "Volt"
+    },
+    {
+        "code": "WEE",
+        "description": " A week is a time unit equal to seven days.",
+        "name": "Week"
+    },
+    {
+        "code": "WHR",
+        "description": "The watt-hour is a unit of energy equivalent to one watt of power expended for one hour of time; it is equal to 3.6 kilojoules.  The watt-hour is rarely used to express energy in any form other than electrical.",
+        "name": "Watt hour"
+    },
+    {
+        "code": "WTT",
+        "description": "A watt is a derived unit of power; one watt is equivalent to 1 joule (J) of energy per second.",
+        "name": "Watt"
+    },
+    {
+        "code": "XRE",
+        "description": "A unit used for quantifying the vitamin A value of sources of vitamin A, including both preformed retinoids and precursor carotenoids.  Examples include: \n. One RE is equivalent to 1 mcg of retinol, 6 mcg of Beta-carotene, or 12 mcg of other pro-vitamin A carotenoids. \n. One RE is equivalent to  0.3 International Units of retinol or 0.1 International Units of Beta-carotene.",
+        "name": "Retinol Equivalent (RE)"
+    },
+    {
+        "code": "XRO",
+        "description": "A unit of count defining the number of rolls where \"Roll\" is the name of the code value in UN/ECE Recommendation 21, pluralized as appropriate.",
+        "name": "Roll"
+    },
+    {
+        "code": "X_SER",
+        "description": "A unit of count defining the number of servings being referenced. There is a validation limiting the usage of this UoM.",
+        "name": "Serving"
+    },
+    {
+        "code": "XST",
+        "description": "A unit of count defining the number of “Sheets” where “Sheet” is the name of the code value in UN/ECE Recommendation 21, pluralized as appropriate.",
+        "name": "Sheet"
+    },
+    {
+        "code": "X_CCA",
+        "description": "A measurement of the number of amps a battery can deliver at 0 ° F for 30 seconds and not drop below 7.2 volts.",
+        "name": "Cold Cramp Amp"
+    },
+    {
+        "code": "X_CFG",
+        "description": "Colony Forming Units per gram (CFU/g). See CFU for definition of Colony Forming Unit",
+        "name": "Colony Forming Units per gram (CFU/g)"
+    },
+    {
+        "code": "X_CFP",
+        "description": "Colony Forming Units per Pound (CFU/lb) See CFU for definition of Colony Forming Unit",
+        "name": "Colony Forming Units per Pound (CFU/lb)"
+    },
+    {
+        "code": "X_CHD",
+        "description": "A count of attenuation steps or dilution levels representing the homeopathic potency of a substance using the Hahnemannian (CH) method of attenuation; commonly denoted as CH1, CH2, CH3, etc. Each centesimal attenuation step represents one part source material combined with 99 parts dilution medium; commonly denoted as C1, C2, C3, etc.",
+        "name": "Centisimal Hahnemannian Dilution (CH)"
+    },
+    {
+        "code": "X_DBA",
+        "description": "Decibar",
+        "name": "Decibar"
+    },
+    {
+        "code": "X_DWT",
+        "description": "A pennyweight (abbreviated dwt or denarius weight) is a unit of mass that is equal to 24 grains, 1⁄20 of a troy ounce, 1⁄240 of a troy pound, and exactly 1.55517384 grams. (Usage- The pennyweight is the common weight used in the valuation and measurement of precious metals. Jewellers use the pennyweight in calculating the amount and cost of precious metals used in fabricating or casting jewellery. Similarly, dentists and dental labs still use the pennyweight as the measure of precious metals in dental crowns and inlays.)",
+        "name": "Penny Weight"
+    },
+    {
+        "code": "X_HIN",
+        "description": "One Hundredth of an inch or 0.01. (Usage- Measurements of Papers, Films, Circuit boards and the like)",
+        "name": "Hundredths of an Inch"
+    },
+    {
+        "code": "X_IUK",
+        "description": "International Units per Kilogram (IU/kg) a unit of activity or potency for vitamins, hormones, or other substances, defined individually for each substance in terms of the activity of a standard quantity or preparation.",
+        "name": "International Units per Kilogram (IU/kg)"
+    },
+    {
+        "code": "X_KVN",
+        "description": "A count of attenuation steps or dilution levels representing the homeopathic potency of a substance using the Korsakovian (K) method of attenuation; commonly denoted as CK1, CK2, CK3, etc. Each centesimal attenuation step represents one part source material combined with 99 parts dilution medium; commonly denoted as C1, C2, C3, etc.",
+        "name": "Korsakovian (K)"
+    },
+    {
+        "code": "X_MLM",
+        "description": "A count of attenuation steps or dilution levels representing the homeopathic potency of a substance where each attenuation step represents one part source material combined with 49,999 parts dilution medium; commonly denoted as LM1, LM2, LM3, etc.",
+        "name": "Millesimai (LM)"
+    },
+    {
+        "code": "X_MPG",
+        "description": "Fuel usage by the number of miles the trade item can go on 1 US gallon of fuel.",
+        "name": "Miles Per Gallon"
+    },
+    {
+        "code": "X_MTC",
+        "description": "A count of a dry crud medical substance Mother tincture, when used for homeopathic preparations, are liquid preparations obtained by the solvent action of a suitable vehicle upon raw materials.  The raw materials (medical substance) are usually in the fresh form but may be dried.  Mother tinctures for homeopathic preparations may also be obtained from plant juices, with, or without the addition of a vehicle.",
+        "name": "Mother tincture (Dry material)"
+    },
+    {
+        "code": "X_NGM",
+        "description": "A nanogram is 10-9 gram or a billionth of a gram.",
+        "name": "Nanogram"
+    },
+    {
+        "code": "X_PPC",
+        "description": "A unit of count defining the number of pixels per linear centimetre as a measurement of the resolution of devices in various contexts; typically computer displays, image scanners or digital camera image sensors.",
+        "name": "Pixel per centimetre"
+    },
+    {
+        "code": "X_PPI",
+        "description": "A unit of count defining the number of pixels per linear inch (PPI) as a measurement of the resolution of devices in various contexts; typically computer displays, image scanners or digital camera image sensors.",
+        "name": "Pixel per inch"
+    },
+    {
+        "code": "X_RAE",
+        "description": "A measure of vitamin A activity based on the capacity of the body to convert provitamin carotenoids containing at least one unsubstituted ionone ring to retinaldehyde. 1 microgram RAE = 1 mg retinol = 12 mg β-carotene = 24 mg other vitamin A precursor carotenoids.",
+        "name": "Retinol Activity Equivalents"
+    },
+    {
+        "code": "X_SIN",
+        "description": "Thirty Seconds of an inch (1/32 or 0.3125). (Usage when measuring using some measuring tapes. Commonly used in model making and some hobbies for scaling to full size.  Also used in railway applications.)\n",
+        "name": "Thirty Seconds of an Inch"
+    },
+    {
+        "code": "X_SPS",
+        "description": "A unit of count defining the number of samplings takes during a period of time",
+        "name": "Sample per second"
+    },
+    {
+        "code": "X_UIN",
+        "description": "One Ten Thousandths of an inch or 0.0001 often called a \"tenth\" in machinery. (Usage- Measurements of some machine parts, gaps in spark plugs).",
+        "name": "Ten Thousandths of an Inch"
+    },
+    {
+        "code": "YDK",
+        "description": " A square yard is the area of a square with sides of one yard (three feet, thirty-six inches, 0.9144 metres) in length",
+        "name": "Square Yard"
+    },
+    {
+        "code": "YRD",
+        "description": "A yard is It is equal to 3 feet or 36 inches or  0.9144 meter.",
+        "name": "Yard"
+    }
+]

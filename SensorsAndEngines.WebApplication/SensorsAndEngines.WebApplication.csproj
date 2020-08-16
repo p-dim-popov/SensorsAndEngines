@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Include="wwwroot\js\modules\sensor.js" />
       <None Include="wwwroot\js\site.js" />
       <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
       <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
@@ -50,10 +51,35 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="System.IO.Ports" Version="4.7.0" />
+        <PackageReference Include="Utf8Json" Version="1.3.7" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\SensorsAndEngines.ProtobufModels\CSharp\SensorsAndEngines.ProtobufModels.CSharp.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\data\" />
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+      <TypeScriptTarget>ES2015</TypeScriptTarget>
+      <TypeScriptJSXEmit>React</TypeScriptJSXEmit>
+      <TypeScriptModuleKind>ES6</TypeScriptModuleKind>
+      <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+      <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+      <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+      <TypeScriptOutFile />
+      <TypeScriptOutDir />
+      <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+      <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+      <TypeScriptSourceMap>True</TypeScriptSourceMap>
+      <TypeScriptMapRoot />
+      <TypeScriptSourceRoot />
+    </PropertyGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="powershell.exe -File copy_node_modules.ps1" />
+    </Target>
 
 </Project>

@@ -1,4 +1,5 @@
 using System.IO.Ports;
+using SensorsAndEngines.WebApplication.Models;
 
 namespace SensorsAndEngines.WebApplication
 {
