@@ -1,4 +1,4 @@
-﻿import { LitElement, html, css } from "https://jspm.dev/lit-element";
+﻿import { LitElement, html } from "https://jspm.dev/lit-element";
 import { until } from "https://jspm.dev/lit-html/directives/until.js";
 import { directive } from "https://jspm.dev/lit-html/lib/directive.js";
 
@@ -72,15 +72,13 @@ class SensorCardComponent extends LitSync(LitElement) {
             info: this.info,
             pin: +this.pin,
             measurementUnit: this.measurementUnit,
-            type: this.type.tagName.toLowerCase()
+            type: this.type.tagName.toLowerCase(),
+            derivedData: {}
         }
 
         if (sensor.type === "analog-sensor") {
-            sensor = {
-                ...sensor,
-                lowerRange: +this.type.lowerRange,
-                upperRange: +this.type.upperRange
-            }
+            sensor.derivedData.lowerRange = +this.type.lowerRange;
+            sensor.derivedData.upperRange = +this.type.upperRange;
         }
 
         return sensor;
@@ -91,8 +89,8 @@ class SensorCardComponent extends LitSync(LitElement) {
         switch (obj["type"]) {
             case "analog-sensor":
                 sensorType = new AnalogSensorComponent();
-                sensorType.lowerRange = obj["lowerRange"];
-                sensorType.upperRange = obj["upperRange"];
+                sensorType.lowerRange = obj["derivedData"]["lowerRange"];
+                sensorType.upperRange = obj["derivedData"]["upperRange"];
                 break;
             case "digital-sensor":
                 sensorType = new DigitalSensorComponent();
@@ -113,7 +111,7 @@ class SensorCardComponent extends LitSync(LitElement) {
     render() {
         return html`
 ${html([window.bootstrapHeaders])}
-<div class="card m-2">
+<div class="card m-3">
   <div class="card-body">
     <div class="container">
         <div class="row">

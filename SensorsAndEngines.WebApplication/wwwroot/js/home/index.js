@@ -2,7 +2,7 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-import { AnalogSensorComponent, DigitalSensorComponent, SensorCardComponent, Sensors } from "/js/modules/sensor.js";
+import { AnalogSensorComponent, DigitalSensorComponent, SensorCardComponent, Sensors } from "/js/home/modules/sensor.js";
 
 main();
 
@@ -31,6 +31,18 @@ function main() {
     const [addAnalogBtn, addDigitalBtn] = [document.getElementById("add-analog-btn"), document.getElementById("add-digital-btn")];
     addAnalogBtn.addEventListener("click", sensors.appendSensor(null, AnalogSensorComponent));
     addDigitalBtn.addEventListener("click", sensors.appendSensor(null, DigitalSensorComponent));
+
+    const startBtn = document.getElementById("start-btn");
+    startBtn.addEventListener("click", () => window.fetch("/home/action",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            redirect: 'follow', // manual, *follow, error
+            body: JSON.stringify(sensors.asSerializable())
+        })
+        .then(r => r.redirected ? window.location.href = r.url : null));
 }
 
 async function homeRefreshPorts(e) {

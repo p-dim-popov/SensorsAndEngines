@@ -1,6 +1,6 @@
 ﻿@using SensorsAndEngines.WebApplication.Models;
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Config Page";
 }
 
 <div class="text-center">
@@ -17,23 +17,25 @@
                 </select>
                 <div id="pre-config-buttons" class="input-group-append">
                     <button id="refresh-ports-btn" class="btn btn-primary" value="/home/getPorts">Refresh Ports</button>
-                    <button id="save-config" class="btn btn-primary">Save Configuration</button>
-                    <button id="load-config" class="btn btn-primary">Load Configuration</button>
+                    <button id="save-config-btn" class="btn btn-primary">Save Configuration</button>
+                    <button id="load-config-btn" class="btn btn-primary">Load Configuration</button>
                     <input type="file" hidden/>
                 </div>
             </div>
             <button type="button" class="btn btn-primary ml-auto col-auto" data-toggle="modal" data-target="#measurement-units-modal-long">?</button>
         </div>
-    </div>
-    <div class="container m-5">
-        <div class="row">
-            <div id="sensor-cards"class="col border rounded">
+        <div class="row my-5 ">
+            <div id="sensor-cards"class="col border rounded m-3">
             </div>
-            <div class="list-group col-auto m-3">
+            <div class="list-group col-auto">
                 <a class="list-group-item list-group-item-action active">Add Sensors</a>
                 <a id="add-analog-btn" href="#" class="list-group-item list-group-item-action">Analog</a>
                 <a id="add-digital-btn" href="#" class="list-group-item list-group-item-action">Digital</a>
             </div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <button id="start-btn" type="button" class="btn btn-primary col-auto">Start</button>
         </div>
     </div>
     
@@ -50,21 +52,21 @@
                 <div class="modal-body">
                     <table class="table">
                         <thead>
-                            <tr>
-                                <td>Code</td>
-                                <td>Description</td>
-                                <td>Name</td>
-                            </tr>
+                        <tr>
+                            <td>Code</td>
+                            <td>Description</td>
+                            <td>Name</td>
+                        </tr>
                         </thead>
                         <tbody>
-                            @foreach (var (_, measurementUnit) in MeasurementUnitsViewModel.Values)
-                            {
-                                <tr>
-                                    <td>@measurementUnit.Code</td>
-                                    <td>@measurementUnit.Description</td>
-                                    <td>@measurementUnit.Name</td>
-                                </tr>
-                            }
+                        @foreach (var (_, measurementUnit) in MeasurementUnitsViewModel.Values)
+                        {
+                            <tr>
+                                <td>@measurementUnit.Code</td>
+                                <td>@measurementUnit.Description</td>
+                                <td>@measurementUnit.Name</td>
+                            </tr>
+                        }
                         </tbody>
                     </table>
                 </div>
@@ -75,3 +77,8 @@
         </div>
     </div>
 </div>
+
+@section Scripts{
+    <script type="module" src="~/js/home/modules/sensor.js"></script>
+    <script type="module" src="~/js/home/index.js"></script>
+}
