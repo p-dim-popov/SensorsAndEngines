@@ -1,4 +1,4 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
 
 namespace SensorsAndEngines.Desktop
 {
@@ -16,7 +16,7 @@ namespace SensorsAndEngines.Desktop
     {
         static void Main(string[] args)
         {
-            TrySerial();
+            TrySerial(true);
 
             using var webBuilder = WebApplication.Program
                 .CreateHostBuilder(args)
@@ -36,58 +36,84 @@ namespace SensorsAndEngines.Desktop
         {
             if (!run)
                 return;
-            
-            using (var serial = new SerialPort
+
+            using var serial = new SerialPort
             {
                 PortName = "COM4",
-                BaudRate = 9600,
+                BaudRate = 115200,
                 Parity = Parity.None,
                 DataBits = 7,
                 StopBits = StopBits.One,
                 DtrEnable = true
-            })
+            };
+
+            var sensors = new Sensors
             {
-                var sensors = new Sensors
+                List =
                 {
-                    List =
+                    new Sensor
                     {
-                        new Sensor
+                        Analog = new AnalogSensor
                         {
-                            Analog = new AnalogSensor
-                            {
-                                UpperRange = 100,
-                                LowerRange = -200
-                            },
-                            MeasurementUnit = "B47", //Kilonewton
-                            Pin = 20
-                        }
+                            UpperRange = 1023,
+                            LowerRange = 0
+                        },
+                        MeasurementUnit = "B47", //Kilonewton
+                        Pin = 20
+                    },
+                    new Sensor
+                    {
+                        Digital = new DigitalSensor(),
+                        MeasurementUnit = "1N",
+                        Pin = 10
                     }
-                };
 
-                try
-                {
-                    serial.Open();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    return;
-                }
+                },
+                Decoding = Decoding.Protobuf
+            };
 
-                serial.DataReceived += (sender, eventArgs) =>
-                {
-                    var serialPort = sender as SerialPort;
-
-                    var ss = Sensors.Parser.ParseDelimitedFrom(serialPort?.BaseStream);
-                    Console.WriteLine(ss.Timestamp);
-                    foreach (var s in ss.List)
-                        Console.WriteLine($"{s.Analog.Value} {s.MeasurementUnit}");
-                };
-
-                serial.Write(sensors.ToByteArray(), 0, sensors.CalculateSize());
-
-                Console.ReadKey();
+            try
+            {
+                serial.Open();
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return;
+            }
+
+            using var file = System.IO.File.CreateText("D:\\Users\\pdimp\\Pictures\\output.txt");
+            using var codedInputStream = new CodedInputStream(serial.BaseStream);
+            var s = new Stopwatch();
+            serial.DataReceived += (sender, eventArgs) =>
+            {
+                s.Reset();
+                s.Start();
+                var ss = new Sensors();
+                codedInputStream.ReadMessage(ss);
+                s.Stop();
+                Console.WriteLine($"pc time after parsing: {s.Elapsed.TotalMilliseconds} ms");
+                Console.WriteLine($"timestamp: {ss.Timestamp}");
+                //foreach (var s in ss.List)
+                //    switch (s.TypeCase)
+                //    {
+                //        case Sensor.TypeOneofCase.Analog:
+                //            file.WriteLine($"analog: {s.Analog.Value} {s.MeasurementUnit}");
+                //            break;
+                //        case Sensor.TypeOneofCase.Digital:
+                //            file.WriteLine($"digital: {s.Digital.Value} {s.MeasurementUnit}, time of change: {s.Digital.Timestamp}");
+                //            break;
+                //        default:
+                //            file.WriteLine("Sensor type is unknown");
+                //            break;
+                //    }
+            };
+
+            serial.Write(sensors.ToByteArray(), 0, sensors.CalculateSize());
+
+            Console.ReadKey();
+            serial.Close();
+            Console.ReadKey();
         }
     }
 }

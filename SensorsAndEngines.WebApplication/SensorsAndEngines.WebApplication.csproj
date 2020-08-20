@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Include="wwwroot\js\home\modules\sensor.js" />
+      <None Include="wwwroot\js\home\modules\sensorCard.js" />
       <None Include="wwwroot\js\home\index.js" />
       <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
       <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
@@ -46,6 +46,9 @@
         <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.7" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.7" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.7" />
+        <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
+        <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.MessagePack" Version="3.1.7" />
+        <PackageReference Include="Microsoft.Data.Sqlite" Version="3.1.7" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.7" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
           <PrivateAssets>all</PrivateAssets>
@@ -78,9 +81,5 @@
       <TypeScriptMapRoot />
       <TypeScriptSourceRoot />
     </PropertyGroup>
-
-    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-      <Exec Command="powershell.exe -File copy_node_modules.ps1" />
-    </Target>
 
 </Project>

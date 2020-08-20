@@ -2,7 +2,7 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-import { AnalogSensorComponent, DigitalSensorComponent, SensorCardComponent, Sensors } from "/js/home/modules/sensor.js";
+import { AnalogSensorComponent, DigitalSensorComponent, SensorCardComponent, Sensors } from "/js/home/modules/sensorCard.js";
 
 main();
 
@@ -12,6 +12,7 @@ function main() {
 
     const sensors = new Sensors(document.getElementById("sensor-cards"));
 
+    const portsDropdown = document.getElementById("port-select-dropdown");
     const [refreshBtn, downloadBtn, loadBtn, hiddenLoadBtn] = document
         .getElementById("pre-config-buttons").children;
 
@@ -33,16 +34,24 @@ function main() {
     addDigitalBtn.addEventListener("click", sensors.appendSensor(null, DigitalSensorComponent));
 
     const startBtn = document.getElementById("start-btn");
-    startBtn.addEventListener("click", () => window.fetch("/home/action",
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            redirect: 'follow', // manual, *follow, error
-            body: JSON.stringify(sensors.asSerializable())
-        })
-        .then(r => r.redirected ? window.location.href = r.url : null));
+    startBtn.addEventListener("click",
+        async () => {
+            await fetch("/home/action",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    redirect: "follow", // manual, *follow, error
+                    body: JSON.stringify({
+                        sensorCards: sensors.asSerializable(),
+                        portName: portsDropdown.selectedOptions[0].value
+                    })
+                });
+
+            window.location.href = ("/home/action");
+        }
+    );
 }
 
 async function homeRefreshPorts(e) {

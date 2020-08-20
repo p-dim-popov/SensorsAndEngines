@@ -23,7 +23,18 @@ message Sensor {
 	uint32 Pin = 4;
 }
 
+enum Decoding {
+	PROTOBUF = 0;
+	CSV = 1;
+}
+
 message Sensors {
 	repeated Sensor List = 1;
 	uint32 Timestamp = 2;
+	Decoding Decoding = 3;
+}
+
+enum Command{
+	PROCEED = 0;
+	STOP = 1;
 }

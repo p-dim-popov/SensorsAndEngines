@@ -4,10 +4,14 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Reflection;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using Google.Protobuf;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
 
 namespace SensorsAndEngines.WebApplication.Controllers
@@ -17,16 +21,19 @@ namespace SensorsAndEngines.WebApplication.Controllers
     using Models;
     using Models.Home;
     using ProtobufModels;
+    using Hubs;
 
     public class HomeController : Controller
     {
         private const string _appJson = "application/json";
         private readonly ILogger<HomeController> _logger;
-        private SerialPort _serialPort;
+        private readonly SerialContext _serialContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, SerialContext serialContext)
         {
             _logger = logger;
+            _serialContext = serialContext;
+
         }
 
         public IActionResult Index()
@@ -37,106 +44,61 @@ namespace SensorsAndEngines.WebApplication.Controllers
         [HttpGet]
         public IActionResult Action()
         {
-            if (!this._serialPort.IsOpen)
-            {
-                return View(new { Content = "Nothing is running." });
-            }
+            if (!_serialContext.IsRunning())
+                return RedirectToAction(nameof(Error));
+
 
             return View();
         }
 
         [HttpPost]
-        public IActionResult Action([FromBody] SensorCardViewModel[] sensorCards)
+        public IActionResult Action([FromBody] ConfigViewModel config)
         {
-            if (!sensorCards.Any())
-            {
-                return View();
-            }
+            if (_serialContext.IsRunning())
+                return RedirectToAction(nameof(Error));
 
-            var config = new MapperConfiguration(cfg =>
+            if (!config.SensorCards.Any())
+                return RedirectToAction(nameof(Error));
+
+            var mapperConfig = new MapperConfiguration(cfg =>
             {
                 cfg
                     .CreateMap<SensorCardViewModel, Sensor>()
                     .ForMember(dest => dest.Digital,
                         opt =>
-                            {
-                                opt.PreCondition(src => src.Type == "digital-sensor");
-                                opt.MapFrom(src => new DigitalSensor());
-                            })
+                        {
+                            opt.PreCondition(src => src.Type == "digital-sensor");
+                            opt.MapFrom(src => new DigitalSensor());
+                        })
                     .ForMember(dest => dest.Analog,
                         opt =>
+                        {
+                            opt.PreCondition(src => src.Type == "analog-sensor");
+                            opt.MapFrom(src => new AnalogSensor()
                             {
-                                opt.PreCondition(src => src.Type == "analog-sensor");
-                                opt.MapFrom(src => new AnalogSensor()
-                                {
-                                    LowerRange = src.DerivedData["lowerRange"].GetInt32(),
-                                    UpperRange = src.DerivedData["upperRange"].GetInt32()
-                                });
+                                LowerRange = src.DerivedData["lowerRange"].GetInt32(),
+                                UpperRange = src.DerivedData["upperRange"].GetInt32()
                             });
+                        });
             });
-            var mapper = config.CreateMapper();
+            var mapper = mapperConfig.CreateMapper();
 
-            var sensors = new Sensors();
-            sensors.List.AddRange(sensorCards
-                .Select(s => mapper.Map<SensorCardViewModel, Sensor>(s)));
+            SensorsDTO.Data.Clear();
 
-            try
+            // Config sensors from the cards
+            var mcuSensorsConfig = new Sensors
             {
-                this._serialPort = new SerialPort
-                {
-                    PortName = "COM4",
-                    BaudRate = 9600,
-                    Parity = Parity.None,
-                    DataBits = 7,
-                    StopBits = StopBits.One,
-                    DtrEnable = true
-                };
+                Decoding = Decoding.Protobuf
+            };
 
-                //ProcessStartInfo psi = new ProcessStartInfo("cmd.exe")
-                //{
-                //    RedirectStandardError = true,
-                //    RedirectStandardInput = true,
-                //    RedirectStandardOutput = true,
-                //    UseShellExecute = false
-                //};
-                //Process p = Process.Start(psi);
-                //StreamWriter sw = p.StandardInput;
+            mcuSensorsConfig.List
+                .AddRange(config.SensorCards
+                    .Select(s => mapper.Map<SensorCardViewModel, Sensor>(s)));
 
-                this._serialPort.Open();
+            // Initialize the serial port from cards
+            _serialContext.Start(config, mcuSensorsConfig);
 
-                var file = System.IO.File.CreateText("D:\\Users\\pdimp\\Pictures\\output.txt");
-
-                this._serialPort.DataReceived +=
-                    (sender, eventArgs) =>
-                    {
-                        var serialPort = sender as SerialPort;
-                        var ss = Sensors.Parser.ParseDelimitedFrom(serialPort?.BaseStream);
-                        file.WriteLine($"time: {ss.Timestamp}");
-                        foreach (var s in ss.List)
-                            switch (s.TypeCase)
-                            {
-                                case Sensor.TypeOneofCase.Analog:
-                                    file.WriteLine($"analog: {s.Analog.Value} {s.MeasurementUnit}");
-                                    break;
-                                case Sensor.TypeOneofCase.Digital:
-                                    file.WriteLine($"digital: {s.Digital.Value} {s.MeasurementUnit}, time: {s.Digital.Timestamp}");
-                                    break;
-                                default:
-                                    file.WriteLine("Sensor type is unknown");
-                                    break;
-                            }
-                    };
-
-                this._serialPort.Write(sensors.ToByteArray(), 0, sensors.CalculateSize());
-
-            }
-            catch (Exception e)
-            {
-                _serialPort.Dispose();
-                throw;
-            }
-
-            return View();
+            return Ok();
         }
 
 
@@ -158,5 +120,16 @@ namespace SensorsAndEngines.WebApplication.Controllers
         [HttpGet]
         public IActionResult GetMeasurementUnits()
             => Content(Utf8Json.JsonSerializer.ToJsonString(MeasurementUnitsViewModel.Values), _appJson);
+
+        [HttpPost]
+        public async Task<IActionResult> ResetCollector()
+        {
+            var result = await _serialContext.ResetCollector();
+
+            if (!result)
+                return RedirectToAction(nameof(Error));
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

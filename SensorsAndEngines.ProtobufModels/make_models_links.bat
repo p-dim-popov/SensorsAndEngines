@@ -10,6 +10,7 @@ if [%1]==[] (
 
 call :debug_echo "Begin of linking at %~1"
 for /D %%G in ("%~1\*") DO ( 
+	set package_name=%%~nxG
 	call :debug_echo "Gonna change the directory"
 	cd "%%G"
 	call :debug_echo "I'm at %%G"

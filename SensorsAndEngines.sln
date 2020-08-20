@@ -20,6 +20,8 @@ Project("{803FD0C6-D64E-4E16-9DC3-1DAEC859A3D2}") = "SensorsAndEngines.Microcont
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SensorsAndEngines.ProtobufModels.Cpp", "SensorsAndEngines.ProtobufModels\Cpp\SensorsAndEngines.ProtobufModels.Cpp.vcxitems", "{108CEDB3-9158-429D-B6DD-E6A5F50FA5F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarks", "Benchmarks\Benchmarks.csproj", "{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,22 @@ Global
 		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Release|SparkFun_Pro_Micro.Build.0 = Release|SparkFun_Pro_Micro
 		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Release|x64.ActiveCfg = Release|SparkFun_Pro_Micro
 		{975E1158-09CA-47DA-A63E-2A12CE3E2382}.Release|x86.ActiveCfg = Release|SparkFun_Pro_Micro
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Debug|SparkFun_Pro_Micro.ActiveCfg = Debug|Any CPU
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Debug|SparkFun_Pro_Micro.Build.0 = Debug|Any CPU
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Debug|x64.Build.0 = Debug|Any CPU
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Debug|x86.Build.0 = Debug|Any CPU
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Release|SparkFun_Pro_Micro.ActiveCfg = Release|Any CPU
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Release|SparkFun_Pro_Micro.Build.0 = Release|Any CPU
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Release|x64.ActiveCfg = Release|Any CPU
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Release|x64.Build.0 = Release|Any CPU
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Release|x86.ActiveCfg = Release|Any CPU
+		{EFD2D78B-3BBC-4E58-90C7-22A3585DAF3E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

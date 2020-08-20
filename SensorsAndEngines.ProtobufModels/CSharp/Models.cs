@@ -30,22 +30,37 @@ namespace SensorsAndEngines.ProtobufModels {
             "KBESDQoFVmFsdWUYAyABKAIimAEKBlNlbnNvchIwCgdEaWdpdGFsGAEgASgL",
             "Mh0uUHJvdG9idWZNb2RlbHMuRGlnaXRhbFNlbnNvckgAEi4KBkFuYWxvZxgC",
             "IAEoCzIcLlByb3RvYnVmTW9kZWxzLkFuYWxvZ1NlbnNvckgAEhcKD01lYXN1",
-            "cmVtZW50VW5pdBgDIAEoCRILCgNQaW4YBCABKA1CBgoEVHlwZSJCCgdTZW5z",
+            "cmVtZW50VW5pdBgDIAEoCRILCgNQaW4YBCABKA1CBgoEVHlwZSJuCgdTZW5z",
             "b3JzEiQKBExpc3QYASADKAsyFi5Qcm90b2J1Zk1vZGVscy5TZW5zb3ISEQoJ",
-            "VGltZXN0YW1wGAIgASgNQiOqAiBTZW5zb3JzQW5kRW5naW5lcy5Qcm90b2J1",
-            "Zk1vZGVsc2IGcHJvdG8z"));
+            "VGltZXN0YW1wGAIgASgNEioKCERlY29kaW5nGAMgASgOMhguUHJvdG9idWZN",
+            "b2RlbHMuRGVjb2RpbmcqIQoIRGVjb2RpbmcSDAoIUFJPVE9CVUYQABIHCgND",
+            "U1YQASogCgdDb21tYW5kEgsKB1BST0NFRUQQABIICgRTVE9QEAFCI6oCIFNl",
+            "bnNvcnNBbmRFbmdpbmVzLlByb3RvYnVmTW9kZWxzYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::SensorsAndEngines.ProtobufModels.Decoding), typeof(global::SensorsAndEngines.ProtobufModels.Command), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::SensorsAndEngines.ProtobufModels.DigitalSensor), global::SensorsAndEngines.ProtobufModels.DigitalSensor.Parser, new[]{ "Timestamp", "Value" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::SensorsAndEngines.ProtobufModels.AnalogSensor), global::SensorsAndEngines.ProtobufModels.AnalogSensor.Parser, new[]{ "UpperRange", "LowerRange", "Value" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::SensorsAndEngines.ProtobufModels.Sensor), global::SensorsAndEngines.ProtobufModels.Sensor.Parser, new[]{ "Digital", "Analog", "MeasurementUnit", "Pin" }, new[]{ "Type" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::SensorsAndEngines.ProtobufModels.Sensors), global::SensorsAndEngines.ProtobufModels.Sensors.Parser, new[]{ "List", "Timestamp" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::SensorsAndEngines.ProtobufModels.Sensors), global::SensorsAndEngines.ProtobufModels.Sensors.Parser, new[]{ "List", "Timestamp", "Decoding" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
+  #region Enums
+  public enum Decoding {
+    [pbr::OriginalName("PROTOBUF")] Protobuf = 0,
+    [pbr::OriginalName("CSV")] Csv = 1,
+  }
+
+  public enum Command {
+    [pbr::OriginalName("PROCEED")] Proceed = 0,
+    [pbr::OriginalName("STOP")] Stop = 1,
+  }
+
+  #endregion
+
   #region Messages
   public sealed partial class DigitalSensor : pb::IMessage<DigitalSensor> {
     private static readonly pb::MessageParser<DigitalSensor> _parser = new pb::MessageParser<DigitalSensor>(() => new DigitalSensor());
@@ -676,6 +691,7 @@ namespace SensorsAndEngines.ProtobufModels {
     public Sensors(Sensors other) : this() {
       list_ = other.list_.Clone();
       timestamp_ = other.timestamp_;
+      decoding_ = other.decoding_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -705,6 +721,17 @@ namespace SensorsAndEngines.ProtobufModels {
       }
     }
 
+    /// <summary>Field number for the "Decoding" field.</summary>
+    public const int DecodingFieldNumber = 3;
+    private global::SensorsAndEngines.ProtobufModels.Decoding decoding_ = global::SensorsAndEngines.ProtobufModels.Decoding.Protobuf;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::SensorsAndEngines.ProtobufModels.Decoding Decoding {
+      get { return decoding_; }
+      set {
+        decoding_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Sensors);
@@ -720,6 +747,7 @@ namespace SensorsAndEngines.ProtobufModels {
       }
       if(!list_.Equals(other.list_)) return false;
       if (Timestamp != other.Timestamp) return false;
+      if (Decoding != other.Decoding) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -728,6 +756,7 @@ namespace SensorsAndEngines.ProtobufModels {
       int hash = 1;
       hash ^= list_.GetHashCode();
       if (Timestamp != 0) hash ^= Timestamp.GetHashCode();
+      if (Decoding != global::SensorsAndEngines.ProtobufModels.Decoding.Protobuf) hash ^= Decoding.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -746,6 +775,10 @@ namespace SensorsAndEngines.ProtobufModels {
         output.WriteRawTag(16);
         output.WriteUInt32(Timestamp);
       }
+      if (Decoding != global::SensorsAndEngines.ProtobufModels.Decoding.Protobuf) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) Decoding);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -757,6 +790,9 @@ namespace SensorsAndEngines.ProtobufModels {
       size += list_.CalculateSize(_repeated_list_codec);
       if (Timestamp != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Timestamp);
+      }
+      if (Decoding != global::SensorsAndEngines.ProtobufModels.Decoding.Protobuf) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Decoding);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -772,6 +808,9 @@ namespace SensorsAndEngines.ProtobufModels {
       list_.Add(other.list_);
       if (other.Timestamp != 0) {
         Timestamp = other.Timestamp;
+      }
+      if (other.Decoding != global::SensorsAndEngines.ProtobufModels.Decoding.Protobuf) {
+        Decoding = other.Decoding;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -790,6 +829,10 @@ namespace SensorsAndEngines.ProtobufModels {
           }
           case 16: {
             Timestamp = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            Decoding = (global::SensorsAndEngines.ProtobufModels.Decoding) input.ReadEnum();
             break;
           }
         }

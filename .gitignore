@@ -391,3 +391,4 @@ VisualGDB/
 VisualGDBCache/
 CodeDB/
 **/.idea/
+**/node_modules/

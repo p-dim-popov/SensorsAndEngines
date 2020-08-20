@@ -1,13 +1,33 @@
-﻿@{
+﻿@model ICollection<SensorsAndEngines.WebApplication.Models.Home.SensorsDTO>
+@{
 }
 
 <div class="container">
     <div class="row">
+        <div id="graph" class="col"></div>
+    </div>
 
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+    <div class="row">
+        <button id="stop-btn" class="btn btn-danger" value="/home/resetCollector">Stop</button>
     </div>
 </div>
 
+
+
 @section Scripts
 {
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.js" integrity="sha512-opAQpVko4oSCRtt9X4IgpmRkINW9JFIV3An2bZWeFwbsVvDxEkl4TEDiQ2vyhO2TDWfk/lC+0L1dzC5FxKFeJw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.js" integrity="sha512-JRLUjih5kZmLwc+9kvJK8trS/iGBuTcwVfYKOqpHLfLSrjiTfyYD9p03gYwOXoY4Kw/xd1xaAmVdNVG1LHKn/g==" crossorigin="anonymous"></script>   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.css" integrity="sha512-QG68tUGWKc1ItPqaThfgSFbubTc+hBv4OW/4W1pGi0HHO5KmijzXzLEOlEbbdfDtVT7t7mOohcOrRC5mxKuaHA==" crossorigin="anonymous" />
+    <script src="~/lib/microsoft-signalr/signalr.js"></script>
+    <script type="module" src="~/js/home/action.js"></script>
 }
