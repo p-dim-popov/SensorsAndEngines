@@ -44,9 +44,8 @@ namespace SensorsAndEngines.WebApplication.Controllers
         [HttpGet]
         public IActionResult Action()
         {
-            if (!_serialContext.IsRunning())
-                return RedirectToAction(nameof(Error));
-
+            if (!_serialContext.IsRunning() && !SensorsDTO.Data.Any())
+                return View(nameof(Error)/*pass error info model*/);
 
             return View();
         }
@@ -55,10 +54,10 @@ namespace SensorsAndEngines.WebApplication.Controllers
         public IActionResult Action([FromBody] ConfigViewModel config)
         {
             if (_serialContext.IsRunning())
-                return RedirectToAction(nameof(Error));
+                return View(nameof(Error)/*pass error info model*/);
 
             if (!config.SensorCards.Any())
-                return RedirectToAction(nameof(Error));
+                return View(nameof(Error)/*pass error info model*/);
 
             var mapperConfig = new MapperConfiguration(cfg =>
             {
@@ -88,13 +87,21 @@ namespace SensorsAndEngines.WebApplication.Controllers
             // Config sensors from the cards
             var mcuSensorsConfig = new Sensors
             {
-                Decoding = Decoding.Protobuf
+                List = {
+                    config.SensorCards
+                        .Select(s => mapper
+                            .Map<SensorCardViewModel, Sensor>(s))
+                }
             };
 
-            mcuSensorsConfig.List
-                .AddRange(config.SensorCards
-                    .Select(s => mapper.Map<SensorCardViewModel, Sensor>(s)));
+            try
+            {
 
+            }
+            catch (Exception)
+            {
+                return View(nameof(Error) /*pass error info model*/);
+            }
             // Initialize the serial port from cards
             _serialContext.Start(config, mcuSensorsConfig);
 
@@ -127,9 +134,9 @@ namespace SensorsAndEngines.WebApplication.Controllers
             var result = await _serialContext.ResetCollector();
 
             if (!result)
-                return RedirectToAction(nameof(Error));
+                return View(nameof(Error)/*pass error info model*/);
 
-            return RedirectToAction(nameof(Index));
+            return View(nameof(Index));
         }
     }
 }

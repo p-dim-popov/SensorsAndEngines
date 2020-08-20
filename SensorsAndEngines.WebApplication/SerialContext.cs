@@ -21,8 +21,7 @@ namespace SensorsAndEngines.WebApplication
         private IHubContext<SensorHub> _sensorHubContext;
         private SerialPort _serialPort;
         private ConfigViewModel _config;
-        private CancellationTokenSource _tokenSource;
-        private bool _shouldRun;
+        private Command _command;
         private Task _runningCollector;
 
         public SerialContext(IHubContext<SensorHub> sensorHubContext, SerialPort serialPort)
@@ -34,7 +33,6 @@ namespace SensorsAndEngines.WebApplication
             _serialPort.DataBits = 7;
             _serialPort.StopBits = StopBits.One;
             _serialPort.DtrEnable = true;
-            _tokenSource = new CancellationTokenSource();
         }
 
         public bool IsRunning()
@@ -44,24 +42,15 @@ namespace SensorsAndEngines.WebApplication
         {
             _serialPort.PortName = config.PortName;
             _config = config;
-            _shouldRun = true;
+            _command = Command.Proceed;
 
             try
             {
                 _serialPort.Open();
-                var cancellationToken = _tokenSource.Token;
-                // Select the delegate based on the decoding type specified
-                switch (mcuSensors.Decoding)
-                {
-                    case Decoding.Protobuf:
-                        _runningCollector = Task.Factory.StartNew(ReceiveProtobuf,
-                             cancellationToken, TaskCreationOptions.LongRunning, TaskScheduler.Default);
-                        break;
-                    case Decoding.Csv:
-                        _runningCollector = Task.Factory.StartNew(() => ReceiveCsv(mcuSensors, config),
-                              cancellationToken, TaskCreationOptions.LongRunning, TaskScheduler.Default);
-                        break;
-                }
+
+                _runningCollector = Task.Factory.StartNew(ReceiveProtobuf,
+                            CancellationToken.None, TaskCreationOptions.LongRunning, TaskScheduler.Default)
+                            .Unwrap();
 
                 // Send configuration to MCU and begin
                 _serialPort.Write(mcuSensors.ToByteArray(), 0, mcuSensors.CalculateSize());
@@ -73,12 +62,13 @@ namespace SensorsAndEngines.WebApplication
             }
         }
 
-        private async void ReceiveProtobuf()
+        private async Task ReceiveProtobuf()
         {
             var s = new Stopwatch(); //TODO: remove
             uint previousTimestamp = 0u;
             using var codedInputStream = new CodedInputStream(_serialPort.BaseStream);
-            while (true)
+
+            while (_command != Command.Stop)
             {
                 s.Reset();
                 s.Start();
@@ -92,30 +82,14 @@ namespace SensorsAndEngines.WebApplication
                 Trace.WriteLine($"timestamp: {sensorsValues.Timestamp - previousTimestamp}\tpc time: {s.Elapsed.TotalMilliseconds}");
                 previousTimestamp = sensorsValues.Timestamp;
                 await Task.Delay(DelayRate);
-                if (!_shouldRun)
-                    break;
 
-                _serialPort.BaseStream.WriteByte((byte)Command.Proceed);
+                _serialPort.BaseStream.WriteByte((byte)_command);
             }
-
-            _tokenSource.Cancel();
-        }
-
-        private void ReceiveCsv(Sensors mcuSensors, ConfigViewModel config)
-        {
-            _serialPort.DataReceived +=
-                async (sender, eventArgs) =>
-                {
-                    mcuSensors.DecodeFromCsv(_serialPort);
-                    var sensorsPlotViewModel = new SensorsDTO(config.SensorCards, mcuSensors);
-                    SensorsDTO.Data.Add(sensorsPlotViewModel);
-                    await _sensorHubContext.Clients.All.SendAsync("ReceiveMessage", sensorsPlotViewModel);
-                };
         }
 
         public async Task<bool> ResetCollector() // Not working correctly but successfully restarts the MCU
         {
-            _shouldRun = false;
+            _command = Command.Stop;
             try
             {
                 await _runningCollector;
@@ -125,34 +99,8 @@ namespace SensorsAndEngines.WebApplication
                 return false;
             }
 
-            _serialPort.BaseStream.WriteByte((byte)Command.Stop);
             _serialPort.Close();
             return true;
         }
-    }
-
-    internal static class SensorsParser
-    {
-        internal static void DecodeFromCsv(this Sensors sensors, SerialPort stream)
-        {
-            var line = stream.ReadLine();
-            var csv = new Queue<string>(line.Split(',', StringSplitOptions.RemoveEmptyEntries));
-            sensors.Timestamp = uint.Parse(csv.Dequeue());
-
-            foreach (var sensor in sensors.List)
-            {
-                switch (sensor.TypeCase)
-                {
-                    case Sensor.TypeOneofCase.Analog:
-                        sensor.Analog.Value = float.Parse(csv.Dequeue());
-                        break;
-                    case Sensor.TypeOneofCase.Digital:
-                        sensor.Digital.Timestamp = uint.Parse(csv.Dequeue());
-                        sensor.Digital.Value = csv.Dequeue() != "0";
-                        break;
-                }
-            }
-        }
-
     }
 }
