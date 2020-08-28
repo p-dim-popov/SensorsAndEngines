@@ -1,8 +1,4 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-import { AnalogSensorComponent, DigitalSensorComponent, SensorCardComponent, Sensors } from "/js/home/modules/sensorCard.js";
+﻿import { AnalogSensorComponent, DigitalSensorComponent, SensorCardComponent, Sensors } from "/js/home/modules/sensorCard.js";
 
 main();
 
@@ -17,26 +13,32 @@ function main() {
         .getElementById("pre-config-buttons").children;
 
     refreshBtn.addEventListener("click", homeRefreshPorts);
-    downloadBtn.addEventListener("click", _ => downloadObjectAsJson(sensors.asSerializable()));
-    loadBtn.addEventListener("click", _ => hiddenLoadBtn.click());
+
+    downloadBtn.addEventListener("click", () => downloadObjectAsJson(sensors.asSerializable()));
+
+    ////////////////////////
+    //#region Load Config Handling
+    loadBtn.addEventListener("click", () => hiddenLoadBtn.click());
     hiddenLoadBtn.addEventListener("change",
         e => handleFileUpload(e, content => {
             sensors.list
-                .forEach(s => sensors.removeSensor(s));
+                .forEach(s => s.removeComponent());
 
             [...JSON.parse(content)]
-                .map(s => SensorCardComponent.asLitElement(s))
-                .forEach(s => sensors.appendSensor(s, null)());
+                .map(s => SensorCardComponent.createLitElement(s))
+                .forEach(s => sensors.appendSensor(s, null));
         }));
+    //#endregion
+    ////////////////////////
 
-    const [addAnalogBtn, addDigitalBtn] = [document.getElementById("add-analog-btn"), document.getElementById("add-digital-btn")];
-    addAnalogBtn.addEventListener("click", sensors.appendSensor(null, AnalogSensorComponent));
-    addDigitalBtn.addEventListener("click", sensors.appendSensor(null, DigitalSensorComponent));
+    const [addAnalogBtn, addDigitalBtn] = document.querySelectorAll(`a[id^="add-"]`);
+    addAnalogBtn.addEventListener("click", () => sensors.appendSensor(null, AnalogSensorComponent));
+    addDigitalBtn.addEventListener("click", () => sensors.appendSensor(null, DigitalSensorComponent));
 
     const startBtn = document.getElementById("start-btn");
     startBtn.addEventListener("click",
         async () => {
-            await fetch("/home/action",
+            const response = await fetch("/home/action",
                 {
                     method: "POST",
                     headers: {
@@ -49,7 +51,7 @@ function main() {
                     })
                 });
 
-            window.location.href = ("/home/action");
+            window.location.href = response.url;
         }
     );
 }

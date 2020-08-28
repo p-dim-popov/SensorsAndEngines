@@ -3,35 +3,34 @@ package ProtobufModels;
 option csharp_namespace = "SensorsAndEngines.ProtobufModels";
 
 message DigitalSensor {
-	uint32 Timestamp = 1;
-	bool Value = 2;
+	uint32 timestamp = 1;
+	bool value = 2;
 }
 
 message AnalogSensor {
-	sint32 UpperRange = 1;
-	sint32 LowerRange = 2;
-	float Value = 3;
+	sint32 upper_range = 1;
+	sint32 lower_range = 2;
+	float value = 3;
 }
 
 message Sensor {
 	oneof Type { 
-		DigitalSensor Digital = 1;
-		AnalogSensor Analog = 2;
+		DigitalSensor digital = 1;
+		AnalogSensor analog = 2;
 	}
 	
-	string MeasurementUnit = 3;
-	uint32 Pin = 4;
+	uint32 pin = 3;
 }
 
-enum Decoding {
-	PROTOBUF = 0;
-	CSV = 1;
+enum Environment{
+	PRODUCTION = 0;
+	DEVELOPMENT = 1;
 }
 
 message Sensors {
-	repeated Sensor List = 1;
-	uint32 Timestamp = 2;
-	Decoding Decoding = 3;
+	repeated Sensor list = 1;
+	uint32 timestamp = 2;
+	Environment environment = 3;
 }
 
 enum Command{

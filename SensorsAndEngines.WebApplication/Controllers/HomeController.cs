@@ -25,39 +25,51 @@ namespace SensorsAndEngines.WebApplication.Controllers
 
     public class HomeController : Controller
     {
-        private const string _appJson = "application/json";
+        private const string AppJson = "application/json";
         private readonly ILogger<HomeController> _logger;
         private readonly SerialContext _serialContext;
+        private readonly MeasurementUnitsViewModel _measurementUnits;
 
-        public HomeController(ILogger<HomeController> logger, SerialContext serialContext)
+        public HomeController(ILogger<HomeController> logger, SerialContext serialContext, MeasurementUnitsViewModel measurementUnits)
         {
             _logger = logger;
             _serialContext = serialContext;
-
+            _measurementUnits = measurementUnits;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(_measurementUnits);
         }
 
         [HttpGet]
         public IActionResult Action()
         {
-            if (!_serialContext.IsRunning() && !SensorsDTO.Data.Any())
-                return View(nameof(Error)/*pass error info model*/);
+            if (!_serialContext.IsRunning())
+                return RedirectToAction(nameof(UserError), new UserErrorViewModel
+                {
+                    Name = "No sensors collection is running!",
+                    RecommendedTo = "Restart the application."
+                });
 
             return View();
         }
 
         [HttpPost]
-        public IActionResult Action([FromBody] ConfigViewModel config)
+        public async Task<IActionResult> Action([FromBody] ConfigViewModel config)
         {
             if (_serialContext.IsRunning())
-                return View(nameof(Error)/*pass error info model*/);
+                return RedirectToAction(nameof(UserError), new UserErrorViewModel
+                {
+                    Name = "Existing collection is already running"
+                });
 
             if (!config.SensorCards.Any())
-                return View(nameof(Error)/*pass error info model*/);
+                return RedirectToAction(nameof(UserError), new UserErrorViewModel
+                {
+                    Name = "Cannot start collection with zero sensors",
+                    RecommendedTo = "Connect some sensors and submit their cards to the application"
+                });
 
             var mapperConfig = new MapperConfiguration(cfg =>
             {
@@ -94,16 +106,15 @@ namespace SensorsAndEngines.WebApplication.Controllers
                 }
             };
 
-            try
-            {
-
-            }
-            catch (Exception)
-            {
-                return View(nameof(Error) /*pass error info model*/);
-            }
             // Initialize the serial port from cards
-            _serialContext.Start(config, mcuSensorsConfig);
+            bool result = await _serialContext.Start(config, mcuSensorsConfig);
+
+            if (!result)
+                return RedirectToAction(nameof(UserError), new UserErrorViewModel
+                {
+                    Name = "Starting the collection returned false.",
+                    RecommendedTo = "Talk to the developer."
+                });
 
             return Ok();
         }
@@ -120,13 +131,18 @@ namespace SensorsAndEngines.WebApplication.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        public IActionResult UserError(UserErrorViewModel userError)
+        {
+            return View(userError);
+        }
+
         [HttpGet]
         public IActionResult GetPorts()
-            => Content(Utf8Json.JsonSerializer.ToJsonString(SerialPort.GetPortNames()), _appJson);
+            => Content(Utf8Json.JsonSerializer.ToJsonString(SerialPort.GetPortNames()), AppJson);
 
         [HttpGet]
         public IActionResult GetMeasurementUnits()
-            => Content(Utf8Json.JsonSerializer.ToJsonString(MeasurementUnitsViewModel.Values), _appJson);
+            => Content(Utf8Json.JsonSerializer.ToJsonString(_measurementUnits.Values), AppJson);
 
         [HttpPost]
         public async Task<IActionResult> ResetCollector()
@@ -134,9 +150,13 @@ namespace SensorsAndEngines.WebApplication.Controllers
             var result = await _serialContext.ResetCollector();
 
             if (!result)
-                return View(nameof(Error)/*pass error info model*/);
+                return RedirectToAction(nameof(UserError), new UserErrorViewModel
+                {
+                    Name = "Could not stop collection correctly!",
+                    RecommendedTo = "Talk to the developer"
+                });
 
-            return View(nameof(Index));
+            return Ok();
         }
     }
 }

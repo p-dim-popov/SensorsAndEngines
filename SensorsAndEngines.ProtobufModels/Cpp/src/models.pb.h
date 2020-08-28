@@ -14,10 +14,10 @@ extern "C" {
 #endif
 
 /* Enum definitions */
-typedef enum _ProtobufModels_Decoding {
-    ProtobufModels_Decoding_PROTOBUF = 0,
-    ProtobufModels_Decoding_CSV = 1
-} ProtobufModels_Decoding;
+typedef enum _ProtobufModels_Environment {
+    ProtobufModels_Environment_PRODUCTION = 0,
+    ProtobufModels_Environment_DEVELOPMENT = 1
+} ProtobufModels_Environment;
 
 typedef enum _ProtobufModels_Command {
     ProtobufModels_Command_PROCEED = 0,
@@ -26,38 +26,37 @@ typedef enum _ProtobufModels_Command {
 
 /* Struct definitions */
 typedef struct _ProtobufModels_AnalogSensor {
-    int32_t UpperRange;
-    int32_t LowerRange;
-    float Value;
+    int32_t upper_range;
+    int32_t lower_range;
+    float value;
 } ProtobufModels_AnalogSensor;
 
 typedef struct _ProtobufModels_DigitalSensor {
-    uint32_t Timestamp;
-    bool Value;
+    uint32_t timestamp;
+    bool value;
 } ProtobufModels_DigitalSensor;
 
 typedef struct _ProtobufModels_Sensor {
     pb_size_t which_Type;
     union {
-        ProtobufModels_DigitalSensor Digital;
-        ProtobufModels_AnalogSensor Analog;
+        ProtobufModels_DigitalSensor digital;
+        ProtobufModels_AnalogSensor analog;
     } Type;
-    char MeasurementUnit[4];
-    uint32_t Pin;
+    uint32_t pin;
 } ProtobufModels_Sensor;
 
 typedef struct _ProtobufModels_Sensors {
-    pb_size_t List_count;
-    ProtobufModels_Sensor List[16];
-    uint32_t Timestamp;
-    ProtobufModels_Decoding Decoding;
+    pb_size_t list_count;
+    ProtobufModels_Sensor list[16];
+    uint32_t timestamp;
+    ProtobufModels_Environment environment;
 } ProtobufModels_Sensors;
 
 
 /* Helper constants for enums */
-#define _ProtobufModels_Decoding_MIN ProtobufModels_Decoding_PROTOBUF
-#define _ProtobufModels_Decoding_MAX ProtobufModels_Decoding_CSV
-#define _ProtobufModels_Decoding_ARRAYSIZE ((ProtobufModels_Decoding)(ProtobufModels_Decoding_CSV+1))
+#define _ProtobufModels_Environment_MIN ProtobufModels_Environment_PRODUCTION
+#define _ProtobufModels_Environment_MAX ProtobufModels_Environment_DEVELOPMENT
+#define _ProtobufModels_Environment_ARRAYSIZE ((ProtobufModels_Environment)(ProtobufModels_Environment_DEVELOPMENT+1))
 
 #define _ProtobufModels_Command_MIN ProtobufModels_Command_PROCEED
 #define _ProtobufModels_Command_MAX ProtobufModels_Command_STOP
@@ -67,58 +66,56 @@ typedef struct _ProtobufModels_Sensors {
 /* Initializer values for message structs */
 #define ProtobufModels_DigitalSensor_init_default {0, 0}
 #define ProtobufModels_AnalogSensor_init_default {0, 0, 0}
-#define ProtobufModels_Sensor_init_default       {0, {ProtobufModels_DigitalSensor_init_default}, "", 0}
-#define ProtobufModels_Sensors_init_default      {0, {ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default}, 0, _ProtobufModels_Decoding_MIN}
+#define ProtobufModels_Sensor_init_default       {0, {ProtobufModels_DigitalSensor_init_default}, 0}
+#define ProtobufModels_Sensors_init_default      {0, {ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default, ProtobufModels_Sensor_init_default}, 0, _ProtobufModels_Environment_MIN}
 #define ProtobufModels_DigitalSensor_init_zero   {0, 0}
 #define ProtobufModels_AnalogSensor_init_zero    {0, 0, 0}
-#define ProtobufModels_Sensor_init_zero          {0, {ProtobufModels_DigitalSensor_init_zero}, "", 0}
-#define ProtobufModels_Sensors_init_zero         {0, {ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero}, 0, _ProtobufModels_Decoding_MIN}
+#define ProtobufModels_Sensor_init_zero          {0, {ProtobufModels_DigitalSensor_init_zero}, 0}
+#define ProtobufModels_Sensors_init_zero         {0, {ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero, ProtobufModels_Sensor_init_zero}, 0, _ProtobufModels_Environment_MIN}
 
 /* Field tags (for use in manual encoding/decoding) */
-#define ProtobufModels_AnalogSensor_UpperRange_tag 1
-#define ProtobufModels_AnalogSensor_LowerRange_tag 2
-#define ProtobufModels_AnalogSensor_Value_tag    3
-#define ProtobufModels_DigitalSensor_Timestamp_tag 1
-#define ProtobufModels_DigitalSensor_Value_tag   2
-#define ProtobufModels_Sensor_Digital_tag        1
-#define ProtobufModels_Sensor_Analog_tag         2
-#define ProtobufModels_Sensor_MeasurementUnit_tag 3
-#define ProtobufModels_Sensor_Pin_tag            4
-#define ProtobufModels_Sensors_List_tag          1
-#define ProtobufModels_Sensors_Timestamp_tag     2
-#define ProtobufModels_Sensors_Decoding_tag      3
+#define ProtobufModels_AnalogSensor_upper_range_tag 1
+#define ProtobufModels_AnalogSensor_lower_range_tag 2
+#define ProtobufModels_AnalogSensor_value_tag    3
+#define ProtobufModels_DigitalSensor_timestamp_tag 1
+#define ProtobufModels_DigitalSensor_value_tag   2
+#define ProtobufModels_Sensor_digital_tag        1
+#define ProtobufModels_Sensor_analog_tag         2
+#define ProtobufModels_Sensor_pin_tag            3
+#define ProtobufModels_Sensors_list_tag          1
+#define ProtobufModels_Sensors_timestamp_tag     2
+#define ProtobufModels_Sensors_environment_tag   3
 
 /* Struct field encoding specification for nanopb */
 #define ProtobufModels_DigitalSensor_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, UINT32,   Timestamp,         1) \
-X(a, STATIC,   SINGULAR, BOOL,     Value,             2)
+X(a, STATIC,   SINGULAR, UINT32,   timestamp,         1) \
+X(a, STATIC,   SINGULAR, BOOL,     value,             2)
 #define ProtobufModels_DigitalSensor_CALLBACK NULL
 #define ProtobufModels_DigitalSensor_DEFAULT NULL
 
 #define ProtobufModels_AnalogSensor_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, SINT32,   UpperRange,        1) \
-X(a, STATIC,   SINGULAR, SINT32,   LowerRange,        2) \
-X(a, STATIC,   SINGULAR, FLOAT,    Value,             3)
+X(a, STATIC,   SINGULAR, SINT32,   upper_range,       1) \
+X(a, STATIC,   SINGULAR, SINT32,   lower_range,       2) \
+X(a, STATIC,   SINGULAR, FLOAT,    value,             3)
 #define ProtobufModels_AnalogSensor_CALLBACK NULL
 #define ProtobufModels_AnalogSensor_DEFAULT NULL
 
 #define ProtobufModels_Sensor_FIELDLIST(X, a) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (Type,Digital,Type.Digital),   1) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (Type,Analog,Type.Analog),   2) \
-X(a, STATIC,   SINGULAR, STRING,   MeasurementUnit,   3) \
-X(a, STATIC,   SINGULAR, UINT32,   Pin,               4)
+X(a, STATIC,   ONEOF,    MESSAGE,  (Type,digital,Type.digital),   1) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (Type,analog,Type.analog),   2) \
+X(a, STATIC,   SINGULAR, UINT32,   pin,               3)
 #define ProtobufModels_Sensor_CALLBACK NULL
 #define ProtobufModels_Sensor_DEFAULT NULL
-#define ProtobufModels_Sensor_Type_Digital_MSGTYPE ProtobufModels_DigitalSensor
-#define ProtobufModels_Sensor_Type_Analog_MSGTYPE ProtobufModels_AnalogSensor
+#define ProtobufModels_Sensor_Type_digital_MSGTYPE ProtobufModels_DigitalSensor
+#define ProtobufModels_Sensor_Type_analog_MSGTYPE ProtobufModels_AnalogSensor
 
 #define ProtobufModels_Sensors_FIELDLIST(X, a) \
-X(a, STATIC,   REPEATED, MESSAGE,  List,              1) \
-X(a, STATIC,   SINGULAR, UINT32,   Timestamp,         2) \
-X(a, STATIC,   SINGULAR, UENUM,    Decoding,          3)
+X(a, STATIC,   REPEATED, MESSAGE,  list,              1) \
+X(a, STATIC,   SINGULAR, UINT32,   timestamp,         2) \
+X(a, STATIC,   SINGULAR, UENUM,    environment,       3)
 #define ProtobufModels_Sensors_CALLBACK NULL
 #define ProtobufModels_Sensors_DEFAULT NULL
-#define ProtobufModels_Sensors_List_MSGTYPE ProtobufModels_Sensor
+#define ProtobufModels_Sensors_list_MSGTYPE ProtobufModels_Sensor
 
 extern const pb_msgdesc_t ProtobufModels_DigitalSensor_msg;
 extern const pb_msgdesc_t ProtobufModels_AnalogSensor_msg;
@@ -134,8 +131,8 @@ extern const pb_msgdesc_t ProtobufModels_Sensors_msg;
 /* Maximum encoded size of messages (where known) */
 #define ProtobufModels_DigitalSensor_size        8
 #define ProtobufModels_AnalogSensor_size         17
-#define ProtobufModels_Sensor_size               30
-#define ProtobufModels_Sensors_size              520
+#define ProtobufModels_Sensor_size               25
+#define ProtobufModels_Sensors_size              440
 
 #ifdef __cplusplus
 } /* extern "C" */

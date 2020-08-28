@@ -16,7 +16,7 @@ namespace SensorsAndEngines.Desktop
     {
         static void Main(string[] args)
         {
-            TrySerial(true);
+            TrySerial(false);
 
             using var webBuilder = WebApplication.Program
                 .CreateHostBuilder(args)
@@ -67,9 +67,7 @@ namespace SensorsAndEngines.Desktop
                         MeasurementUnit = "1N",
                         Pin = 10
                     }
-
-                },
-                Decoding = Decoding.Protobuf
+                }
             };
 
             try

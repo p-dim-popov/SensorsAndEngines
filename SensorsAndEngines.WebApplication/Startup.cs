@@ -17,15 +17,18 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using SensorsAndEngines.ProtobufModels;
+using SensorsAndEngines.WebApplication.Models;
 
 namespace SensorsAndEngines.WebApplication
 {
     using Hubs;
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment _env;
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -43,6 +46,7 @@ namespace SensorsAndEngines.WebApplication
             services.AddSignalR();
             services.AddSingleton<SerialPort>();
             services.AddSingleton<SerialContext>();
+            services.AddSingleton(new MeasurementUnitsViewModel(_env.ContentRootFileProvider));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +65,6 @@ namespace SensorsAndEngines.WebApplication
             }
 
             app.UseHttpsRedirection();
-
 
 #if DEBUG
             app.UseStaticFiles(new StaticFileOptions
@@ -91,6 +94,8 @@ namespace SensorsAndEngines.WebApplication
                 endpoints.MapRazorPages();
                 endpoints.MapHub<SensorHub>("/sensorHub");
             });
+
+
         }
 
         private static DirectoryInfo GetSolutionDirectory(DirectoryInfo currentDir)

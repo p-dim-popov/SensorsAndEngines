@@ -25,33 +25,33 @@ namespace SensorsAndEngines.ProtobufModels {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cgxtb2RlbHMucHJvdG8SDlByb3RvYnVmTW9kZWxzIjEKDURpZ2l0YWxTZW5z",
-            "b3ISEQoJVGltZXN0YW1wGAEgASgNEg0KBVZhbHVlGAIgASgIIkUKDEFuYWxv",
-            "Z1NlbnNvchISCgpVcHBlclJhbmdlGAEgASgREhIKCkxvd2VyUmFuZ2UYAiAB",
-            "KBESDQoFVmFsdWUYAyABKAIimAEKBlNlbnNvchIwCgdEaWdpdGFsGAEgASgL",
-            "Mh0uUHJvdG9idWZNb2RlbHMuRGlnaXRhbFNlbnNvckgAEi4KBkFuYWxvZxgC",
-            "IAEoCzIcLlByb3RvYnVmTW9kZWxzLkFuYWxvZ1NlbnNvckgAEhcKD01lYXN1",
-            "cmVtZW50VW5pdBgDIAEoCRILCgNQaW4YBCABKA1CBgoEVHlwZSJuCgdTZW5z",
-            "b3JzEiQKBExpc3QYASADKAsyFi5Qcm90b2J1Zk1vZGVscy5TZW5zb3ISEQoJ",
-            "VGltZXN0YW1wGAIgASgNEioKCERlY29kaW5nGAMgASgOMhguUHJvdG9idWZN",
-            "b2RlbHMuRGVjb2RpbmcqIQoIRGVjb2RpbmcSDAoIUFJPVE9CVUYQABIHCgND",
-            "U1YQASogCgdDb21tYW5kEgsKB1BST0NFRUQQABIICgRTVE9QEAFCI6oCIFNl",
-            "bnNvcnNBbmRFbmdpbmVzLlByb3RvYnVmTW9kZWxzYgZwcm90bzM="));
+            "b3ISEQoJdGltZXN0YW1wGAEgASgNEg0KBXZhbHVlGAIgASgIIkcKDEFuYWxv",
+            "Z1NlbnNvchITCgt1cHBlcl9yYW5nZRgBIAEoERITCgtsb3dlcl9yYW5nZRgC",
+            "IAEoERINCgV2YWx1ZRgDIAEoAiJ/CgZTZW5zb3ISMAoHZGlnaXRhbBgBIAEo",
+            "CzIdLlByb3RvYnVmTW9kZWxzLkRpZ2l0YWxTZW5zb3JIABIuCgZhbmFsb2cY",
+            "AiABKAsyHC5Qcm90b2J1Zk1vZGVscy5BbmFsb2dTZW5zb3JIABILCgNwaW4Y",
+            "AyABKA1CBgoEVHlwZSJ0CgdTZW5zb3JzEiQKBGxpc3QYASADKAsyFi5Qcm90",
+            "b2J1Zk1vZGVscy5TZW5zb3ISEQoJdGltZXN0YW1wGAIgASgNEjAKC2Vudmly",
+            "b25tZW50GAMgASgOMhsuUHJvdG9idWZNb2RlbHMuRW52aXJvbm1lbnQqLgoL",
+            "RW52aXJvbm1lbnQSDgoKUFJPRFVDVElPThAAEg8KC0RFVkVMT1BNRU5UEAEq",
+            "IAoHQ29tbWFuZBILCgdQUk9DRUVEEAASCAoEU1RPUBABQiOqAiBTZW5zb3Jz",
+            "QW5kRW5naW5lcy5Qcm90b2J1Zk1vZGVsc2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::SensorsAndEngines.ProtobufModels.Decoding), typeof(global::SensorsAndEngines.ProtobufModels.Command), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::SensorsAndEngines.ProtobufModels.Environment), typeof(global::SensorsAndEngines.ProtobufModels.Command), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::SensorsAndEngines.ProtobufModels.DigitalSensor), global::SensorsAndEngines.ProtobufModels.DigitalSensor.Parser, new[]{ "Timestamp", "Value" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::SensorsAndEngines.ProtobufModels.AnalogSensor), global::SensorsAndEngines.ProtobufModels.AnalogSensor.Parser, new[]{ "UpperRange", "LowerRange", "Value" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::SensorsAndEngines.ProtobufModels.Sensor), global::SensorsAndEngines.ProtobufModels.Sensor.Parser, new[]{ "Digital", "Analog", "MeasurementUnit", "Pin" }, new[]{ "Type" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::SensorsAndEngines.ProtobufModels.Sensors), global::SensorsAndEngines.ProtobufModels.Sensors.Parser, new[]{ "List", "Timestamp", "Decoding" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::SensorsAndEngines.ProtobufModels.Sensor), global::SensorsAndEngines.ProtobufModels.Sensor.Parser, new[]{ "Digital", "Analog", "Pin" }, new[]{ "Type" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::SensorsAndEngines.ProtobufModels.Sensors), global::SensorsAndEngines.ProtobufModels.Sensors.Parser, new[]{ "List", "Timestamp", "Environment" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Enums
-  public enum Decoding {
-    [pbr::OriginalName("PROTOBUF")] Protobuf = 0,
-    [pbr::OriginalName("CSV")] Csv = 1,
+  public enum Environment {
+    [pbr::OriginalName("PRODUCTION")] Production = 0,
+    [pbr::OriginalName("DEVELOPMENT")] Development = 1,
   }
 
   public enum Command {
@@ -97,7 +97,7 @@ namespace SensorsAndEngines.ProtobufModels {
       return new DigitalSensor(this);
     }
 
-    /// <summary>Field number for the "Timestamp" field.</summary>
+    /// <summary>Field number for the "timestamp" field.</summary>
     public const int TimestampFieldNumber = 1;
     private uint timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -108,7 +108,7 @@ namespace SensorsAndEngines.ProtobufModels {
       }
     }
 
-    /// <summary>Field number for the "Value" field.</summary>
+    /// <summary>Field number for the "value" field.</summary>
     public const int ValueFieldNumber = 2;
     private bool value_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -255,7 +255,7 @@ namespace SensorsAndEngines.ProtobufModels {
       return new AnalogSensor(this);
     }
 
-    /// <summary>Field number for the "UpperRange" field.</summary>
+    /// <summary>Field number for the "upper_range" field.</summary>
     public const int UpperRangeFieldNumber = 1;
     private int upperRange_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -266,7 +266,7 @@ namespace SensorsAndEngines.ProtobufModels {
       }
     }
 
-    /// <summary>Field number for the "LowerRange" field.</summary>
+    /// <summary>Field number for the "lower_range" field.</summary>
     public const int LowerRangeFieldNumber = 2;
     private int lowerRange_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -277,7 +277,7 @@ namespace SensorsAndEngines.ProtobufModels {
       }
     }
 
-    /// <summary>Field number for the "Value" field.</summary>
+    /// <summary>Field number for the "value" field.</summary>
     public const int ValueFieldNumber = 3;
     private float value_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -429,7 +429,6 @@ namespace SensorsAndEngines.ProtobufModels {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Sensor(Sensor other) : this() {
-      measurementUnit_ = other.measurementUnit_;
       pin_ = other.pin_;
       switch (other.TypeCase) {
         case TypeOneofCase.Digital:
@@ -448,7 +447,7 @@ namespace SensorsAndEngines.ProtobufModels {
       return new Sensor(this);
     }
 
-    /// <summary>Field number for the "Digital" field.</summary>
+    /// <summary>Field number for the "digital" field.</summary>
     public const int DigitalFieldNumber = 1;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::SensorsAndEngines.ProtobufModels.DigitalSensor Digital {
@@ -459,7 +458,7 @@ namespace SensorsAndEngines.ProtobufModels {
       }
     }
 
-    /// <summary>Field number for the "Analog" field.</summary>
+    /// <summary>Field number for the "analog" field.</summary>
     public const int AnalogFieldNumber = 2;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::SensorsAndEngines.ProtobufModels.AnalogSensor Analog {
@@ -470,19 +469,8 @@ namespace SensorsAndEngines.ProtobufModels {
       }
     }
 
-    /// <summary>Field number for the "MeasurementUnit" field.</summary>
-    public const int MeasurementUnitFieldNumber = 3;
-    private string measurementUnit_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string MeasurementUnit {
-      get { return measurementUnit_; }
-      set {
-        measurementUnit_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "Pin" field.</summary>
-    public const int PinFieldNumber = 4;
+    /// <summary>Field number for the "pin" field.</summary>
+    public const int PinFieldNumber = 3;
     private uint pin_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint Pin {
@@ -526,7 +514,6 @@ namespace SensorsAndEngines.ProtobufModels {
       }
       if (!object.Equals(Digital, other.Digital)) return false;
       if (!object.Equals(Analog, other.Analog)) return false;
-      if (MeasurementUnit != other.MeasurementUnit) return false;
       if (Pin != other.Pin) return false;
       if (TypeCase != other.TypeCase) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -537,7 +524,6 @@ namespace SensorsAndEngines.ProtobufModels {
       int hash = 1;
       if (typeCase_ == TypeOneofCase.Digital) hash ^= Digital.GetHashCode();
       if (typeCase_ == TypeOneofCase.Analog) hash ^= Analog.GetHashCode();
-      if (MeasurementUnit.Length != 0) hash ^= MeasurementUnit.GetHashCode();
       if (Pin != 0) hash ^= Pin.GetHashCode();
       hash ^= (int) typeCase_;
       if (_unknownFields != null) {
@@ -561,12 +547,8 @@ namespace SensorsAndEngines.ProtobufModels {
         output.WriteRawTag(18);
         output.WriteMessage(Analog);
       }
-      if (MeasurementUnit.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(MeasurementUnit);
-      }
       if (Pin != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(24);
         output.WriteUInt32(Pin);
       }
       if (_unknownFields != null) {
@@ -583,9 +565,6 @@ namespace SensorsAndEngines.ProtobufModels {
       if (typeCase_ == TypeOneofCase.Analog) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Analog);
       }
-      if (MeasurementUnit.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(MeasurementUnit);
-      }
       if (Pin != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Pin);
       }
@@ -599,9 +578,6 @@ namespace SensorsAndEngines.ProtobufModels {
     public void MergeFrom(Sensor other) {
       if (other == null) {
         return;
-      }
-      if (other.MeasurementUnit.Length != 0) {
-        MeasurementUnit = other.MeasurementUnit;
       }
       if (other.Pin != 0) {
         Pin = other.Pin;
@@ -650,11 +626,7 @@ namespace SensorsAndEngines.ProtobufModels {
             Analog = subBuilder;
             break;
           }
-          case 26: {
-            MeasurementUnit = input.ReadString();
-            break;
-          }
-          case 32: {
+          case 24: {
             Pin = input.ReadUInt32();
             break;
           }
@@ -691,7 +663,7 @@ namespace SensorsAndEngines.ProtobufModels {
     public Sensors(Sensors other) : this() {
       list_ = other.list_.Clone();
       timestamp_ = other.timestamp_;
-      decoding_ = other.decoding_;
+      environment_ = other.environment_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -700,7 +672,7 @@ namespace SensorsAndEngines.ProtobufModels {
       return new Sensors(this);
     }
 
-    /// <summary>Field number for the "List" field.</summary>
+    /// <summary>Field number for the "list" field.</summary>
     public const int ListFieldNumber = 1;
     private static readonly pb::FieldCodec<global::SensorsAndEngines.ProtobufModels.Sensor> _repeated_list_codec
         = pb::FieldCodec.ForMessage(10, global::SensorsAndEngines.ProtobufModels.Sensor.Parser);
@@ -710,7 +682,7 @@ namespace SensorsAndEngines.ProtobufModels {
       get { return list_; }
     }
 
-    /// <summary>Field number for the "Timestamp" field.</summary>
+    /// <summary>Field number for the "timestamp" field.</summary>
     public const int TimestampFieldNumber = 2;
     private uint timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -721,14 +693,14 @@ namespace SensorsAndEngines.ProtobufModels {
       }
     }
 
-    /// <summary>Field number for the "Decoding" field.</summary>
-    public const int DecodingFieldNumber = 3;
-    private global::SensorsAndEngines.ProtobufModels.Decoding decoding_ = global::SensorsAndEngines.ProtobufModels.Decoding.Protobuf;
+    /// <summary>Field number for the "environment" field.</summary>
+    public const int EnvironmentFieldNumber = 3;
+    private global::SensorsAndEngines.ProtobufModels.Environment environment_ = global::SensorsAndEngines.ProtobufModels.Environment.Production;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::SensorsAndEngines.ProtobufModels.Decoding Decoding {
-      get { return decoding_; }
+    public global::SensorsAndEngines.ProtobufModels.Environment Environment {
+      get { return environment_; }
       set {
-        decoding_ = value;
+        environment_ = value;
       }
     }
 
@@ -747,7 +719,7 @@ namespace SensorsAndEngines.ProtobufModels {
       }
       if(!list_.Equals(other.list_)) return false;
       if (Timestamp != other.Timestamp) return false;
-      if (Decoding != other.Decoding) return false;
+      if (Environment != other.Environment) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -756,7 +728,7 @@ namespace SensorsAndEngines.ProtobufModels {
       int hash = 1;
       hash ^= list_.GetHashCode();
       if (Timestamp != 0) hash ^= Timestamp.GetHashCode();
-      if (Decoding != global::SensorsAndEngines.ProtobufModels.Decoding.Protobuf) hash ^= Decoding.GetHashCode();
+      if (Environment != global::SensorsAndEngines.ProtobufModels.Environment.Production) hash ^= Environment.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -775,9 +747,9 @@ namespace SensorsAndEngines.ProtobufModels {
         output.WriteRawTag(16);
         output.WriteUInt32(Timestamp);
       }
-      if (Decoding != global::SensorsAndEngines.ProtobufModels.Decoding.Protobuf) {
+      if (Environment != global::SensorsAndEngines.ProtobufModels.Environment.Production) {
         output.WriteRawTag(24);
-        output.WriteEnum((int) Decoding);
+        output.WriteEnum((int) Environment);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -791,8 +763,8 @@ namespace SensorsAndEngines.ProtobufModels {
       if (Timestamp != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Timestamp);
       }
-      if (Decoding != global::SensorsAndEngines.ProtobufModels.Decoding.Protobuf) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Decoding);
+      if (Environment != global::SensorsAndEngines.ProtobufModels.Environment.Production) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Environment);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -809,8 +781,8 @@ namespace SensorsAndEngines.ProtobufModels {
       if (other.Timestamp != 0) {
         Timestamp = other.Timestamp;
       }
-      if (other.Decoding != global::SensorsAndEngines.ProtobufModels.Decoding.Protobuf) {
-        Decoding = other.Decoding;
+      if (other.Environment != global::SensorsAndEngines.ProtobufModels.Environment.Production) {
+        Environment = other.Environment;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -832,7 +804,7 @@ namespace SensorsAndEngines.ProtobufModels {
             break;
           }
           case 24: {
-            Decoding = (global::SensorsAndEngines.ProtobufModels.Decoding) input.ReadEnum();
+            Environment = (global::SensorsAndEngines.ProtobufModels.Environment) input.ReadEnum();
             break;
           }
         }

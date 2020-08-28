@@ -55,9 +55,9 @@ class SensorCardComponent extends LitSync(LitElement) {
         this.measurementUnit = "";
     }
 
+    // Override behaviour from outside this component
     removeComponent() {
-        this._outterReferenceCallback().remove();
-
+        this._outterReferenceCallback().onremove(this);
     }
 
     get measurementUnits() {
@@ -84,7 +84,7 @@ class SensorCardComponent extends LitSync(LitElement) {
         return sensor;
     }
 
-    static asLitElement(obj) {
+    static createLitElement(obj) {
         let sensorType;
         switch (obj["type"]) {
             case "analog-sensor":
@@ -147,7 +147,7 @@ ${html([window.bootstrapHeaders])}
     ${this.type}
   </ul>
   <div class="card-body">
-    <button @click="${this.removeComponent}" type="button" class="btn btn-danger">Remove</button>
+    <button id="remove-btn" @click="${this.removeComponent}" type="button" class="btn btn-danger">Remove</button>
   </div>
 </div>
 `;
@@ -225,18 +225,19 @@ class Sensors {
     }
 
     appendSensor(sensor, sensorType) {
-        return () => {
-            const s = sensor || new SensorCardComponent(new sensorType(), _ => s);
-            this.cards.appendChild(s);
-            this.list.push(s);
-            return s;
-        }
+        const s = sensor || new SensorCardComponent(new sensorType(), _ => s);
+        s.onremove = this.removeSensor(s);
+        this.cards.appendChild(s);
+        this.list.push(s);
+        return s;
     }
 
     removeSensor(sensor) {
-        this.list = this.list
-            .filter(el => el !== sensor);
-        sensor.removeComponent(this);
+        return () => {
+            this.list = this.list
+                .filter(el => el !== sensor);
+            sensor.remove();
+        }
     }
 
     //Example usage: before serializing the list

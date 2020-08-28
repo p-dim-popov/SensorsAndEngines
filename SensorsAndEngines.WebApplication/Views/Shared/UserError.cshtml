@@ -1,0 +1,23 @@
+﻿@model UserErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred!</h2>
+
+@if (Model != null)
+{
+    <p>
+        <strong>Error Name: </strong>
+        <h4>@Model.Name</h4>
+    </p>
+
+    @if (!string.IsNullOrWhiteSpace(Model.RecommendedTo))
+    {
+        <p>
+            <strong>Recomended to: </strong>
+            <h5>@Model.RecommendedTo</h5>
+        </p>
+    }
+}

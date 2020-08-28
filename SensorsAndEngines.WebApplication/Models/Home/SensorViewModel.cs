@@ -7,7 +7,7 @@ using Google.Protobuf;
 
 namespace SensorsAndEngines.WebApplication.Models.Home
 {
-    public class SensorViewModel//<T> where T : IMessage
+    public class SensorViewModel//<T> where T : IMessage // serializing generics in c# won't work so every T is now object
     {
         public SensorViewModel(SensorCardViewModel sensorCard, object sensorValues)
         {

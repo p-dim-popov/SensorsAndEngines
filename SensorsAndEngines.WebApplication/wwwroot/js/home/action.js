@@ -11,7 +11,6 @@ async function main() {
     await connection.start();
 
     const serverData = await connection.invoke("LoadData");
-    console.log(serverData);
 
     const data = serverData
         .reduce((acc, cur) => [...acc, [cur.time, ...cur.models.map(m => +m.data.value)]], []);
@@ -29,9 +28,16 @@ async function main() {
     connection.on("ReceiveMessage", function (jsonData) {
         data.push([jsonData.time, ...jsonData.models.map(s => +s.data.value)]);
         graph.updateOptions({ 'file': data });
-        console.log(jsonData.time);
     });
 
     const stopBtn = document.getElementById("stop-btn");
-    stopBtn.addEventListener('click', () => fetch(stopBtn.value, { method: "POST"}));
+    stopBtn.addEventListener('click', () => {
+        fetch(stopBtn.value, { method: "POST" });
+        stopBtn.classList.add("d-none");
+    });
+
+    const downloadBtn = document.getElementById("download-btn");
+    downloadBtn.addEventListener("click", () => {
+
+    });
 }

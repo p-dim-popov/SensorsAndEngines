@@ -38,7 +38,7 @@ namespace SensorsAndEngines.WebApplication
         public bool IsRunning()
             => _serialPort.IsOpen;
 
-        public void Start(ConfigViewModel config, Sensors mcuSensors)
+        public async Task<bool> Start(ConfigViewModel config, Sensors mcuSensors)
         {
             _serialPort.PortName = config.PortName;
             _config = config;
@@ -58,8 +58,13 @@ namespace SensorsAndEngines.WebApplication
             catch (Exception)
             {
                 _serialPort.Close();
-                throw;
+                return false;
             }
+
+            while (!SensorsDTO.Data.Any())
+                await Task.Delay(8);
+
+            return true;
         }
 
         private async Task ReceiveProtobuf()
@@ -102,5 +107,7 @@ namespace SensorsAndEngines.WebApplication
             _serialPort.Close();
             return true;
         }
+
+
     }
 }

@@ -1,4 +1,4 @@
-﻿@using SensorsAndEngines.WebApplication.Models;
+﻿@model MeasurementUnitsViewModel;
 @{
     ViewData["Title"] = "Config Page";
 }
@@ -59,7 +59,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach (var (_, measurementUnit) in MeasurementUnitsViewModel.Values)
+                        @foreach (var (_, measurementUnit) in Model.Values)
                         {
                             <tr>
                                 <td>@measurementUnit.Code</td>

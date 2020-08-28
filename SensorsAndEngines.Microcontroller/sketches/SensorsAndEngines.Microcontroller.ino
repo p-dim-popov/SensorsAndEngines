@@ -14,21 +14,20 @@
 #define BAUD_RATE 115200
 #define MIN_ANALOG 0
 #define MAX_ANALOG 1023
+#define WDT_RESET_MS 2100
 
 // Structures -----------------------
 
 struct Sensors
 {
 	//Members -----------------------
-	
-	Print* _printer;
 	ProtobufModels_Sensors models = ProtobufModels_Sensors_init_zero;
 
 	//Methods -----------------------
 
-	void Setup(Stream&);
-	void Read();
-	void Send();
+	void setup(Stream&);
+	void read();
+	void send();
 }
 ;
 
@@ -41,10 +40,8 @@ uint32_t command = ProtobufModels_Command_PROCEED;
 
 // Methods --------------------------
 
-void ErrorBlink(const char* message = NULL);
-void(* ResetFunc)(void) = 0;
+void error_blink(ProtobufModels_Environment environment, const char* message = NULL);
 
-// the setup function runs once when you press reset or power the board
 void setup()
 {
 	pinMode(INFO_LED, OUTPUT);
@@ -52,130 +49,89 @@ void setup()
 	
 	while (!Serial.available()) ;
 	
-	sensors.Setup(Serial);
-	wdt_enable(WDTO_1S);
+	sensors.setup(Serial);
+	wdt_enable(WDTO_2S);
 }
 
-// the loop function runs over and over again until power down or reset
 void loop()
 {
-	sensors.Read();
-	sensors.Send();
+	sensors.read();
+	sensors.send();
 	
 	while (!Serial.available()) ;
 
 	switch (Serial.read())
 	{
 	case ProtobufModels_Command_PROCEED:
-			wdt_reset();
+		wdt_reset();
 		break;
 	case ProtobufModels_Command_STOP:
-		delay(2000);
+		delay(WDT_RESET_MS);
 	default:
-		ErrorBlink(pb_ostream.errmsg);
+		wdt_reset();
+		error_blink(sensors.models.environment, pb_ostream.errmsg);
 		break;
 	}
 }
 
 // Implementations ------------------
 
-void ErrorBlink(const char* message)
+void error_blink(ProtobufModels_Environment env, const char* message)
 {
 	while (1)
 	{
+		if (env == ProtobufModels_Environment_DEVELOPMENT) wdt_reset();
 		digitalWrite(INFO_LED, !digitalRead(INFO_LED));
 		Serial.println(message);
 		delay(64);
 	}
 }
 
-void Sensors::Setup(Stream& stream)
+void Sensors::setup(Stream& stream)
 {
 	pb_ostream = as_pb_ostream(stream);
 	pb_istream = as_pb_istream(stream);
-	this->_printer = &stream;
 
 	if (!pb_decode(&pb_istream, ProtobufModels_Sensors_fields, &this->models)) ;
 	//		ErrorBlink(istream.errmsg);
-	for(byte i = 0 ; i < this->models.List_count ; i++)
-		pinMode(this->models.List[i].Pin, INPUT);
+	for(byte i = 0 ; i < this->models.list_count ; i++)
+		pinMode(this->models.list[i].pin, INPUT);
 }
 
-void Sensors::Read()
+void Sensors::read()
 {
-	this->models.Timestamp = millis();
+	this->models.timestamp = millis();
 	
-	for (byte i = 0; i < this->models.List_count; i++)
+	for (byte i = 0; i < this->models.list_count; i++)
 	{		
-		switch (this->models.List[i].which_Type)
+		switch (this->models.list[i].which_Type)
 		{
-		case ProtobufModels_Sensor_Digital_tag:
+		case ProtobufModels_Sensor_digital_tag:
 			{
-				int currentState = digitalRead(this->models.List[i].Pin);
-				if (currentState != this->models.List[i].Type.Digital.Value)
+				int currentState = digitalRead(this->models.list[i].pin);
+				if (currentState != this->models.list[i].Type.digital.value)
 				{
-					this->models.List[i].Type.Digital.Timestamp = models.Timestamp;
-					this->models.List[i].Type.Digital.Value = currentState;
+					this->models.list[i].Type.digital.timestamp = models.timestamp;
+					this->models.list[i].Type.digital.value = currentState;
 				}
 			}
 			break;
-		case ProtobufModels_Sensor_Analog_tag:
+		case ProtobufModels_Sensor_analog_tag:
 			{
-				int value = analogRead(this->models.List[i].Pin);
-				this->models.List[i].Type.Analog.Value = 
-					map(value, MIN_ANALOG, MAX_ANALOG, this->models.List[i].Type.Analog.LowerRange, this->models.List[i].Type.Analog.UpperRange);
+				int value = analogRead(this->models.list[i].pin);
+				this->models.list[i].Type.analog.value = 
+					map(value, MIN_ANALOG, MAX_ANALOG, this->models.list[i].Type.analog.lower_range, this->models.list[i].Type.analog.upper_range);
 			}
 			break;
 		default:
-			ErrorBlink();
+			error_blink(this->models.environment);
 			break;
 		}
 	}
 }
 
-void Sensors::Send()
+void Sensors::send()
 {
-	switch (sensors.models.Decoding)
-	{
-	case ProtobufModels_Decoding_PROTOBUF:
-		if (!pb_encode_ex(&pb_ostream, ProtobufModels_Sensors_fields, &this->models, PB_ENCODE_DELIMITED))
-			ErrorBlink(pb_ostream.errmsg);
-		break;
-	case ProtobufModels_Decoding_CSV:
-		{
-			//			char buffer[sizeof sensors];
-			//			memset(buffer, '\0', sizeof(buffer));
-			String buffer;
-			buffer.concat(sensors.models.Timestamp);
-			buffer.concat(',');
-			for (uint8_t i = 0; i < sensors.models.List_count; i++)
-			{
-				const ProtobufModels_Sensor& sensor = this->models.List[i];
-				switch (sensor.which_Type)
-				{
-				case ProtobufModels_Sensor_Digital_tag:
-					//memcpy(buffer + strlen(buffer), (char*)&sensor.Type.Digital.Timestamp, sizeof(typeof sensor.Type.Digital.Timestamp));
-					//memcpy(buffer + strlen(buffer), ",", 0x1);
-					//memcpy(buffer + strlen(buffer), (char*)&sensor.Type.Digital.Value, sizeof(typeof sensor.Type.Digital.Value));
-					buffer.concat(sensor.Type.Digital.Timestamp);
-					buffer.concat(',');
-					buffer.concat(sensor.Type.Digital.Value);
-					break;
-				case ProtobufModels_Sensor_Analog_tag:
-					//memcpy(buffer + strlen(buffer), (char*)&sensor.Type.Analog.Value, sizeof(typeof sensor.Type.Analog.Value));
-					buffer.concat(sensor.Type.Analog.Value);
-					break;
-				default:
-					ErrorBlink();
-					break;
-				}
-				//memcpy(buffer, ",", 0x1);
-				buffer.concat(',');
-			}
-			
-			this->_printer->println(buffer);
-		}
-	default:
-		break;
-	}
+	if (!pb_encode_ex(&pb_ostream, ProtobufModels_Sensors_fields, &this->models, PB_ENCODE_DELIMITED))
+		error_blink(this->models.environment, pb_ostream.errmsg);
 }

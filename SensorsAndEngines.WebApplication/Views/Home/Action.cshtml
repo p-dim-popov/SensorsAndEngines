@@ -18,7 +18,8 @@
         </div>
     </div>
     <div class="row">
-        <button id="stop-btn" class="btn btn-danger" value="/home/resetCollector">Stop</button>
+        <button id="stop-btn" class="btn btn-danger mx-2" value="/home/resetCollector">Stop</button>
+        <button id="download-btn" class="btn btn-primary mx-2" value="/home/downloadCollected">Download</button>
     </div>
 </div>
 
@@ -26,8 +27,8 @@
 
 @section Scripts
 {
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.js" integrity="sha512-JRLUjih5kZmLwc+9kvJK8trS/iGBuTcwVfYKOqpHLfLSrjiTfyYD9p03gYwOXoY4Kw/xd1xaAmVdNVG1LHKn/g==" crossorigin="anonymous"></script>   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.css" integrity="sha512-QG68tUGWKc1ItPqaThfgSFbubTc+hBv4OW/4W1pGi0HHO5KmijzXzLEOlEbbdfDtVT7t7mOohcOrRC5mxKuaHA==" crossorigin="anonymous" />
+    <link href="~/lib/dygraph/dygraph.css"/>
+    <script src="~/lib/dygraph/dygraph.js"></script>
     <script src="~/lib/microsoft-signalr/signalr.js"></script>
     <script type="module" src="~/js/home/action.js"></script>
 }
